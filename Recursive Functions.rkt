@@ -16,14 +16,28 @@
       (+ (* (car lst1) (car lst2)) (dotProduct (cdr lst1) (cdr lst2)))))
 ;-----------------------
 
+
+; Duplicates Function
 ;-----------------------
-; Write the Duplicates Function Here
+; B. Given a list of numbers, return whether or not the list contains any duplicate entries.
+; Method: 
+;         if (the first element in the list exists in the second list)
+;            return true
+;         else
+;            recursive call to search the rest of the list.
+
+(define (duplicates base)
+  (define (helper lst)
+    (if (null? lst)
+        (duplicates (cdr base))
+        (if (equal? (car base) (car lst))
+                                   #t
+                                   (helper (cdr lst)))))
+  (if (null? base)
+      #f
+      (helper (cdr base))))  
 ;-----------------------
 
-; // if (the first element in the list exists in the second list)
-; //    return true
-; // else
-; //    recursive call to search the rest of the list.
 
 ;-----------------------
 ; Write the MaxDistance Function Here
@@ -59,22 +73,22 @@
 (newline)
 
 (writeln "Duplicates of an empty lists? '()")
-; (duplicates '())
+(duplicates '())
 
 (writeln "Duplicates of a single list '(2)?")
-; (duplicates '(2))
+(duplicates '(2))
 
 (writeln "Duplicates of the list '(82 62 42 92 32)?")
-; (duplicates '(82 62 42 92 32))
+(duplicates '(82 62 42 92 32))
 
 (writeln "Duplicates of the list '(82 62 42 82 32)?")
-; (duplicates '(82 62 42 82 32))
+(duplicates '(82 62 42 82 32))
 
 (writeln "Duplicates of the list '(82 62 42 32 32)?")
-; (duplicates '(82 62 42 32 32))
+(duplicates '(82 62 42 32 32))
 
 (writeln "Duplicates of the list '(32 62 42 32 12)?")
-; (duplicates '(32 62 42 32 32))
+(duplicates '(32 62 42 32 32))
 
 
 (newline)
