@@ -10,8 +10,12 @@
 ; Dot Product Function
 ;-----------------------
 ; A. Given two lists of numbers, return the dot-product.
+;
+; Strategy:
+;           Create function that multiplies a corresponding element and adds the result to
+;           the recursive call of the next element of both lists.
 (define (dotProduct lst1 lst2)
-  (if (null? lst1)
+  (if (or (null? lst1) (null? lst2))
       0
       (+ (* (car lst1) (car lst2)) (dotProduct (cdr lst1) (cdr lst2)))))
 ;-----------------------
@@ -20,7 +24,8 @@
 ; Duplicates Function
 ;-----------------------
 ; B. Given a list of numbers, return whether or not the list contains any duplicate entries.
-; Method: 
+;
+; Strategy: 
 ;         if (the first element in the list exists in the second list)
 ;            return true
 ;         else
@@ -39,20 +44,38 @@
 ;-----------------------
 
 
+; Max Distance Function
 ;-----------------------
-; Write the MaxDistance Function Here
+; C. Given two lists of numbers (same length) and return the largest difference between
+;    corresponding pairs of numbers.
+;
+; Strategy:
+;    Function 1: Takes two lists and finds the absolute value of the difference between
+;                each element.
+;    Function 2: Finds the max value of a list by comparing each element to the list
+;                head node and is replaced if the element is bigger.
+;    Function 3: Given two lists, passes them to function 1, then passes the result of
+;                fuction 1 to function 2. 
+
+(define (lstMaker lst1 lst2)
+  (if (or (null? lst1) (null? lst2))
+      '()
+      (cons (abs (- (car lst1) (car lst2))) (lstMaker (cdr lst1) (cdr lst2)))))
+
+(define (maxVal lst)
+  (if (null? (cdr lst))
+      (car lst)
+      (if (< (car lst) (maxVal (cdr lst)))
+          (maxVal (cdr lst))
+          (car lst))))
+
+(define (maxDistance lst1 lst2)
+  (if (or (null? lst1) (null? lst2))
+      0
+      (let ((diff (lstMaker lst1 lst2)))
+        (maxVal diff))))
 ;-----------------------
 
-; // This will probably take two functions.
-; // Function 1 sets dist to the abs of the first element in each list.
-; // Then calls Function 2 with dist and "the rest of the list."
-
-; // Function 2
-; // if the length of the lists are zero, return dist
-; // else if the distance between the first elements > dist
-; //    recursive call to Function 2 passing the new dist and the rest of the list
-; // else
-; //    A recursive call to Function 2 passing the current dist and the rest of the list.
 
 ;-----------------------
 ; Below are your test cases.  
@@ -96,14 +119,14 @@
 (newline)
 
 (writeln "Max Distance of two empty lists '() '()")
-; (maxDistance '() '())
+(maxDistance '() '())
 
 (writeln "Max Distance of two single lists '(2) '(8)")
-; (maxDistance '(2) '(8))
+(maxDistance '(2) '(8))
 
 (writeln "Max Distance of two single lists '(-4) '(-12)")
-; (maxDistance '(-4) '(-12))
+(maxDistance '(-4) '(-12))
 
 (writeln "Max Distance of two longer lists")
 (writeln "'(3  8 12 4 2 22 -4 18) '(6 -4 20 6 0 22  7  3)")
-; (maxDistance '(3  8 12 4 2 22 -4 18) '(6 -4 20 6 0 22  7  3))
+(maxDistance '(3  8 12 4 2 22 -4 18) '(6 -4 20 6 0 22  7  3))
