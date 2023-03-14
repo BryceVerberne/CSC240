@@ -1,0 +1,11 @@
+_HiStOrY_V2_
+consult(family).
+father_of(X,Y).
+halt.
+consult(family).
+male(bob).
+halt.
+male(bob).
+parent_of(X,Y).
+consult(family).
+halt.
