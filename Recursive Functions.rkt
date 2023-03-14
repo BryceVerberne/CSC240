@@ -6,10 +6,15 @@
 
 
 #lang racket
-;-----------------------
-; Write the DotProduct Function Here
-;-----------------------
 
+; Dot Product Function
+;-----------------------
+; A. Given two lists of numbers, return the dot-product.
+(define (dotProduct lst1 lst2)
+  (if (null? lst1)
+      0
+      (+ (* (car lst1) (car lst2)) (dotProduct (cdr lst1) (cdr lst2)))))
+;-----------------------
 
 ;-----------------------
 ; Write the Duplicates Function Here
@@ -41,52 +46,50 @@
 
 (writeln "Dot Product of two empty lists '() '()")
 (dotProduct '() '())
+
 (writeln "Dot Product of single lists '(1) '(4)")
 (dotProduct '(1) '(4))
+
 (writeln "Dot Product of longer lists '(8 -2 4 6) '(2 -12 -4 7)")
 (dotProduct '(8 -2 4 6) '(2 -12 -4 7))
+
 
 (newline)
 (writeln "Testing Duplicates Methods")
 (newline)
+
 (writeln "Duplicates of an empty lists? '()")
-(duplicates '())
+; (duplicates '())
 
 (writeln "Duplicates of a single list '(2)?")
-(duplicates '(2))
+; (duplicates '(2))
 
 (writeln "Duplicates of the list '(82 62 42 92 32)?")
-(duplicates '(82 62 42 92 32))
+; (duplicates '(82 62 42 92 32))
 
 (writeln "Duplicates of the list '(82 62 42 82 32)?")
-(duplicates '(82 62 42 82 32))
+; (duplicates '(82 62 42 82 32))
 
 (writeln "Duplicates of the list '(82 62 42 32 32)?")
-(duplicates '(82 62 42 32 32))
+; (duplicates '(82 62 42 32 32))
 
 (writeln "Duplicates of the list '(32 62 42 32 12)?")
-(duplicates '(32 62 42 32 32))
+; (duplicates '(32 62 42 32 32))
+
 
 (newline)
 (writeln "Testing Max Distance Methods")
 (newline)
 
 (writeln "Max Distance of two empty lists '() '()")
-(maxDistance '() '())
-
+; (maxDistance '() '())
 
 (writeln "Max Distance of two single lists '(2) '(8)")
-(maxDistance '(2) '(8))
-
+; (maxDistance '(2) '(8))
 
 (writeln "Max Distance of two single lists '(-4) '(-12)")
-(maxDistance '(-4) '(-12))
-
+; (maxDistance '(-4) '(-12))
 
 (writeln "Max Distance of two longer lists")
 (writeln "'(3  8 12 4 2 22 -4 18) '(6 -4 20 6 0 22  7  3)")
-(maxDistance '(3  8 12 4 2 22 -4 18) '(6 -4 20 6 0 22  7  3))
-
-
-
-
+; (maxDistance '(3  8 12 4 2 22 -4 18) '(6 -4 20 6 0 22  7  3))
