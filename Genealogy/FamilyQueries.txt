@@ -1,8 +1,9 @@
-#### Modify this file to shows your queries against your family tree.  An example is shown below
-
+-----------------------------------
+Example Queries
+-----------------------------------
 > swipl
 
-?- consolt(family).
+?- consult(family).
 true.
 ?- mother_of(jane, elaine).
 true.
@@ -16,10 +17,50 @@ false.
 
 ?- female(X), mother_of(elaine,X).
 false.
+-----------------------------------
+End of Example Queries
+-----------------------------------
 
 
+-----------------------------------
+My Queries
+-----------------------------------
+> swipl
+
+?- consult(family).
+true.
 
 
- 
+?- motherOf(thuya, tiye).
+true.
+
+?- motherOf(nefertiti, nebetah).
+false.
 
 
+?- fatherOf(yuya, anen).
+true.
+
+?- fatherOf(akhenaten, nerfertiti).
+false.
+
+
+?- lifespan(mutemwiya, Birth, Death).
+Birth = '14th century BC.',
+Death = '1386 BC to 1353 BC.'.
+
+?- lifespan(X, '1391 BC.', '1353 BC.').
+X = thuya ;
+false.
+
+?- lifespan(X, '~1350 BC.', Death).
+X = iset,
+Death = 'early 13th century BC.' ;
+X = sitamun,
+Death = 'mid-14th, early 13th century BC.' ;
+X = nebetah,
+Death = 'mid-14th, early 13th century BC.' ;
+X = mutnodjmet,
+Death = '1290-1280 BC.' ;
+X = neferneferure,
+Death = 'early 13th century BC.'.
