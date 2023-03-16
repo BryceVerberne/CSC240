@@ -23,6 +23,8 @@ grandmother_of(X, Z) :- mother_of(X, Y), father_of(Y, Z).
 
 
 % Amarna Family Tree - My knowledge base
+
+% Add male() & female() facts
 male(thutmosis_IV).
 male(yuya).
 male(amenhotep_III).
@@ -49,41 +51,42 @@ female(ankhesenamun).
 female(nefertiti).
 
 
-fatherOf(thutmosis_IV, amenhotep_III).
-fatherOf(yuya, tiye).
-fatherOf(yuya, anen).
-fatherOf(ay, nefertiti).
-fatherOf(ay, mutnodjmet).
-fatherOf(amenhotep_III, thutmose).
-fatherOf(amenhotep_III, iset).
-fatherOf(amenhotep_III, sitamun).
-fatherOf(amenhotep_III, nebetah).
-fatherOf(amenhotep_III, akhenaten).
-fatherOf(akhenaten, meritaten).
-fatherOf(akhenaten, meketaten).
-fatherOf(akhenaten, neferneferuaten).
-fatherOf(akhenaten, neferneferure).
-fatherOf(akhenaten, setepenre).
-fatherOf(akhenaten, tutakhamun).
-fatherOf(akhenaten, ankhesenamun).
+% Add parentOf() facts
+parentOf(thutmosis_IV, amenhotep_III).
+parentOf(yuya, tiye).
+parentOf(yuya, anen).
+parentOf(ay, nefertiti).
+parentOf(ay, mutnodjmet).
+parentOf(amenhotep_III, thutmose).
+parentOf(amenhotep_III, iset).
+parentOf(amenhotep_III, sitamun).
+parentOf(amenhotep_III, nebetah).
+parentOf(amenhotep_III, akhenaten).
+parentOf(akhenaten, meritaten).
+parentOf(akhenaten, meketaten).
+parentOf(akhenaten, neferneferuaten).
+parentOf(akhenaten, neferneferure).
+parentOf(akhenaten, setepenre).
+parentOf(akhenaten, tutakhamun).
+parentOf(akhenaten, ankhesenamun).
+parentOf(mutemwiya, amenhotep_III).
+parentOf(thuya, tiye).
+parentOf(thuya, anen).
+parentOf(tiye, thutmose).
+parentOf(tiye, sitamun).
+parentOf(tiye, nebetah).
+parentOf(tiye, akhenaten).
+parentOf(tiye, iset).
+parentOf(nefertiti, meritaten).
+parentOf(nefertiti, meketaten).
+parentOf(nefertiti, neferneferuaten).
+parentOf(nefertiti, neferneferure).
+parentOf(nefertiti, setepenre).
+parentOf(nefertiti, tutakhamun).
+parentOf(nefertiti, ankhesenamun).
 
-motherOf(mutemwiya, amenhotep_III).
-motherOf(thuya, tiye).
-motherOf(thuya, anen).
-motherOf(tiye, thutmose).
-motherOf(tiye, sitamun).
-motherOf(tiye, nebetah).
-motherOf(tiye, akhenaten).
-motherOf(tiye, iset).
-motherOf(nefertiti, meritaten).
-motherOf(nefertiti, meketaten).
-motherOf(nefertiti, neferneferuaten).
-motherOf(nefertiti, neferneferure).
-motherOf(nefertiti, setepenre).
-motherOf(nefertiti, tutakhamun).
-motherOf(nefertiti, ankhesenamun).
 
-
+% Add lifespan() facts
 lifespan(mutemwiya, '14th century BC.', '1386 BC to 1353 BC.').
 lifespan(thuya, '1391 BC.', '1353 BC.').
 lifespan(tiye, '1398 BC.', '1338 BC.').
@@ -109,6 +112,7 @@ lifespan(neferneferure, '~1350 BC.', 'early 13th century BC.').
 lifespan(ankhesenamun, '~1348 BC.', '~1320 BC.').
 
 
+% Add rulerOf() facts
 rulerOf(thutmosis_IV, 'Egypt', '1401 BC.', '1391 BC.').
 rulerOf(amenhotep_III, 'Egypt', '1391 BC.', '1353 BC.').
 rulerOf(akhenaten, 'Egypt', '1353 BC.', '1336 BC.').
