@@ -33,18 +33,26 @@ true.
 halt.
 
 
-?- motherOf(thuya, tiye).
+?- parentOf(tiye, akhenaten).
 true.
 
-?- motherOf(nefertiti, nebetah).
+?- parentOf(yuya, nebetah).
 false.
 
-?- fatherOf(yuya, anen).
+?- parentOf(Parent, meritaten).
+Parent = akhenaten ;
+Parent = nefertiti.
+
+?- parentOf(thuya, Child).
+Child = tiye ;
+Child = anen.
+
+
+?- lifespan(mutemwiya, '14th century BC.', '1386 BC to 1353 BC.').
 true.
 
-?- fatherOf(akhenaten, nerfertiti).
+?- lifespan(yuya, '18th dynasty', '1336-1337 BC.').
 false.
-
 
 ?- lifespan(mutemwiya, Birth, Death).
 Birth = '14th century BC.',
@@ -69,6 +77,9 @@ Death = 'early 13th century BC.'.
 
 ?- rulerOf(neferneferuaten, 'Egypt', '1353 BC.', '1336 BC').
 true.
+
+?- rulerOf(ay, 'Egypt', '1332 BC.', '1323 BC.').
+false.
 
 ?- rulerOf(Ruler, _, '1319 BC.', _).
 Ruler = horemheb.
