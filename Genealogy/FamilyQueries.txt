@@ -30,13 +30,14 @@ My Queries
 ?- consult(family).
 true.
 
+halt.
+
 
 ?- motherOf(thuya, tiye).
 true.
 
 ?- motherOf(nefertiti, nebetah).
 false.
-
 
 ?- fatherOf(yuya, anen).
 true.
@@ -53,14 +54,46 @@ Death = '1386 BC to 1353 BC.'.
 X = thuya ;
 false.
 
-?- lifespan(X, '~1350 BC.', Death).
-X = iset,
+?- lifespan(Person, '~1350 BC.', Death).
+Person = iset,
 Death = 'early 13th century BC.' ;
-X = sitamun,
+Person = sitamun,
 Death = 'mid-14th, early 13th century BC.' ;
-X = nebetah,
+Person = nebetah,
 Death = 'mid-14th, early 13th century BC.' ;
-X = mutnodjmet,
+Person = mutnodjmet,
 Death = '1290-1280 BC.' ;
-X = neferneferure,
+Person = neferneferure,
 Death = 'early 13th century BC.'.
+
+
+?- rulerOf(neferneferuaten, 'Egypt', '1353 BC.', '1336 BC').
+true.
+
+?- rulerOf(Ruler, _, '1319 BC.', _).
+Ruler = horemheb.
+
+?- rulerOf(thutmosis_IV, Country, Began, Ended).
+Country = 'Egypt',
+Began = '1401 BC.',
+Ended = '1391 BC.'.
+
+?- rulerOf(Ruler, 'Egypt', _, _).
+Ruler = thutmosis_IV ;
+Ruler = amenhotep_III ;
+Ruler = akhenaten ;
+Ruler = horemheb ;
+Ruler = setepenre ;
+Ruler = tutankhamun ;
+Ruler = ay ;
+Ruler = neferneferuaten.
+
+?- rulerOf(Ruler, 'Egypt', '1401 BC.', _).
+Ruler = thutmosis_IV.
+
+?- rulerOf(Ruler, Country, '1319 BC.', '1292 BC.').
+Ruler = horemheb,
+Country = 'Egypt'.
+-----------------------------------
+End of My Queries
+-----------------------------------
