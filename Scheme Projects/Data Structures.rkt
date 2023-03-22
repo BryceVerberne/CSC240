@@ -1,8 +1,13 @@
+; Title:  Data Structures
+; Desc:   This program demonstrates how to manipulate pairs & lists 
+; Author: Bryce Verberne
+; Date:   03/22/2023
+
+
+
 #lang racket
-; Let's practice manipulating pairs and lists
 
 ; Let's create a pair
-
 (cons 2 4)  ; Let's create an ordered pair of (2,4)
 
 (cons 'rectangle (cons 10 20))
