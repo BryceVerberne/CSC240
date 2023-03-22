@@ -1,7 +1,7 @@
-; Title: Scheme Functions w/ Decisions
-; Desc: In this program, I am writing Scheme functions with conditional statements. 
+; Title:  Scheme Functions w/ Decisions
+; Desc:   In this program, I am writing Scheme functions with conditional statements. 
 ; Author: Bryce Verberne
-; Date: 03/11/2023
+; Date:   03/11/2023
 
 
 
