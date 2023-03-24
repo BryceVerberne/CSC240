@@ -23,7 +23,7 @@ End of Example Queries
 
 
 -----------------------------------
-My Queries
+My Queries: Genealogy P1
 -----------------------------------
 > swipl
 
@@ -106,5 +106,15 @@ Ruler = thutmosis_IV.
 Ruler = horemheb,
 Country = 'Egypt'.
 -----------------------------------
-End of My Queries
+End of My Queries: Genealogy P1
+-----------------------------------
+
+
+-----------------------------------
+My Rules: Genealogy P2
+-----------------------------------
+
+
+-----------------------------------
+End of My Queries: Genealogy P2
 -----------------------------------
