@@ -1,29 +1,32 @@
 % Title:  Genealogy
 % Author: Bryce Verberne
-% Desc:   In this program, I am creating a genealogical knowledge base on the Amarna Family Tree.
-% Date:   03/14/2023
+% Desc:   In this program, I am creating a genealogical knowledge base on Amarna Family Tree.
+% Date:   03/23/2023
 
 
 % Knowledge base for a family - Example
 /*
 male(bob).
 male(mike).
+
 female(jane).
 female(elaine).
 mother_of(jane, elaine).
 mother_of(jane, mike).
 mother_of(elaine, bob).
+
 father_of(david, elaine).
 father_of(david, mike).
+
 sibling_of(X, Y) :- mother_of(P, X), mother_of(P, Y).
 sibling_of(X, Y) :- father_of(P, X), father_of(P, Y).
+
 grandmother_of(X, Z) :- mother_of(X, Y), mother_of(Y, Z).
 grandmother_of(X, Z) :- mother_of(X, Y), father_of(Y, Z).
 */
 
 
 % Amarna Family Tree - My knowledge base
-
 % Add male() & female() facts
 male(thutmosis_IV).
 male(yuya).
@@ -51,7 +54,7 @@ female(ankhesenamun).
 female(nefertiti).
 
 
-% Add parentOf() facts
+% Add parentOf() rules
 parentOf(thutmosis_IV, amenhotep_III).
 parentOf(yuya, tiye).
 parentOf(yuya, anen).
@@ -86,7 +89,43 @@ parentOf(nefertiti, tutakhamun).
 parentOf(nefertiti, ankhesenamun).
 
 
-% Add lifespan() facts
+% Add fatherOf() & motherOf() rules
+fatherOf(thutmosis_IV, amenhotep_III).
+fatherOf(yuya, tiye).
+fatherOf(yuya, anen).
+fatherOf(ay, nefertiti).
+fatherOf(ay, mutnodjmet).
+fatherOf(amenhotep_III, thutmose).
+fatherOf(amenhotep_III, iset).
+fatherOf(amenhotep_III, sitamun).
+fatherOf(amenhotep_III, nebetah).
+fatherOf(amenhotep_III, akhenaten).
+fatherOf(akhenaten, meritaten).
+fatherOf(akhenaten, meketaten).
+fatherOf(akhenaten, neferneferuaten).
+fatherOf(akhenaten, neferneferure).
+fatherOf(akhenaten, setepenre).
+fatherOf(akhenaten, tutakhamun).
+fatherOf(akhenaten, ankhesenamun).
+
+motherOf(mutemwiya, amenhotep_III).
+motherOf(thuya, tiye).
+motherOf(thuya, anen).
+motherOf(tiye, thutmose).
+motherOf(tiye, sitamun).
+motherOf(tiye, nebetah).
+motherOf(tiye, akhenaten).
+motherOf(tiye, iset).
+motherOf(nefertiti, meritaten).
+motherOf(nefertiti, meketaten).
+motherOf(nefertiti, neferneferuaten).
+motherOf(nefertiti, neferneferure).
+motherOf(nefertiti, setepenre).
+motherOf(nefertiti, tutakhamun).
+motherOf(nefertiti, ankhesenamun).
+
+
+% Add lifespan() rules
 lifespan(mutemwiya, '14th century BC.', '1386 BC to 1353 BC.').
 lifespan(thuya, '1391 BC.', '1353 BC.').
 lifespan(tiye, '1398 BC.', '1338 BC.').
@@ -110,14 +149,3 @@ lifespan(meketaten, '~1349 BC', '1335-1334 BC').
 lifespan(neferneferuaten, 'mid-14th century BC.', 'mid-1330s BC.').
 lifespan(neferneferure, '~1350 BC.', 'early 13th century BC.').
 lifespan(ankhesenamun, '~1348 BC.', '~1320 BC.').
-
-
-% Add rulerOf() facts
-rulerOf(thutmosis_IV, 'Egypt', '1401 BC.', '1391 BC.').
-rulerOf(amenhotep_III, 'Egypt', '1391 BC.', '1353 BC.').
-rulerOf(akhenaten, 'Egypt', '1353 BC.', '1336 BC.').
-rulerOf(horemheb, 'Egypt', '1319 BC.', '1292 BC.').
-rulerOf(setepenre, 'Egypt', '~14th century', '~14th century').
-rulerOf(tutankhamun, 'Egypt', '1332 BC.', '1323 BC.').
-rulerOf(ay, 'Egypt', '1323 BC.', '1319 BC.').
-rulerOf(neferneferuaten, 'Egypt', '1353 BC.', '1336 BC').
