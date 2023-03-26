@@ -27,7 +27,7 @@ grandmother_of(X, Z) :- mother_of(X, Y), father_of(Y, Z).
 
 
 % Amarna Family Tree - My knowledge base
-% Add male() & female() facts
+% The 'male(<name>)' defines that the specified person is male
 male(thutmosis_IV).
 male(yuya).
 male(amenhotep_III).
@@ -39,6 +39,7 @@ male(setepenre).
 male(tutakhamun).
 male(ay).
 
+% The 'female(<name>)' defines that the specified person is female
 female(iset).
 female(thuya).
 female(mutemwiya).
@@ -54,7 +55,7 @@ female(ankhesenamun).
 female(nefertiti).
 
 
-% Add parentOf() rules
+% The 'parentOf(<parent>, <child>)' predicate defines that the first argument is the parent of the second 
 parentOf(thutmosis_IV, amenhotep_III).
 parentOf(yuya, tiye).
 parentOf(yuya, anen).
@@ -89,43 +90,7 @@ parentOf(nefertiti, tutakhamun).
 parentOf(nefertiti, ankhesenamun).
 
 
-% Add fatherOf() & motherOf() rules
-fatherOf(thutmosis_IV, amenhotep_III).
-fatherOf(yuya, tiye).
-fatherOf(yuya, anen).
-fatherOf(ay, nefertiti).
-fatherOf(ay, mutnodjmet).
-fatherOf(amenhotep_III, thutmose).
-fatherOf(amenhotep_III, iset).
-fatherOf(amenhotep_III, sitamun).
-fatherOf(amenhotep_III, nebetah).
-fatherOf(amenhotep_III, akhenaten).
-fatherOf(akhenaten, meritaten).
-fatherOf(akhenaten, meketaten).
-fatherOf(akhenaten, neferneferuaten).
-fatherOf(akhenaten, neferneferure).
-fatherOf(akhenaten, setepenre).
-fatherOf(akhenaten, tutakhamun).
-fatherOf(akhenaten, ankhesenamun).
-
-motherOf(mutemwiya, amenhotep_III).
-motherOf(thuya, tiye).
-motherOf(thuya, anen).
-motherOf(tiye, thutmose).
-motherOf(tiye, sitamun).
-motherOf(tiye, nebetah).
-motherOf(tiye, akhenaten).
-motherOf(tiye, iset).
-motherOf(nefertiti, meritaten).
-motherOf(nefertiti, meketaten).
-motherOf(nefertiti, neferneferuaten).
-motherOf(nefertiti, neferneferure).
-motherOf(nefertiti, setepenre).
-motherOf(nefertiti, tutakhamun).
-motherOf(nefertiti, ankhesenamun).
-
-
-% Add lifespan() rules
+% The 'lifepsan(<person>, <birth>, <death>)' predicate defines the birth & death year of the specified person
 lifespan(mutemwiya, '14th century BC.', '1386 BC to 1353 BC.').
 lifespan(thuya, '1391 BC.', '1353 BC.').
 lifespan(tiye, '1398 BC.', '1338 BC.').
@@ -149,3 +114,54 @@ lifespan(meketaten, '~1349 BC', '1335-1334 BC').
 lifespan(neferneferuaten, 'mid-14th century BC.', 'mid-1330s BC.').
 lifespan(neferneferure, '~1350 BC.', 'early 13th century BC.').
 lifespan(ankhesenamun, '~1348 BC.', '~1320 BC.').
+
+
+% The following rules are created based off of the predefined facts above.
+fatherOf(Dad, Child) :-
+  parentOf(Dad, Child),
+  male(Dad).
+
+motherOf(Mom, Child) :- 
+  parentOf(Mom, Child),
+  female(Mom).
+
+sonOf(Child, Parent) :-
+  parentOf(Parent, Child),
+  male(Child).
+
+daughterOf(Child, Parent) :-
+  parentOf(Parent, Child),
+  female(Child).
+
+siblingOf(C1, C2) :-
+  parentOf(Parent, C1),
+  parentOf(Parent, C2),
+  C1 \= C2.
+
+brotherOf(Brother, Sibling) :-
+  siblingOf(Brother, Sibling),
+  male(Brother).
+
+sisterOf(Sister, Sibling) :-
+  siblingOf(Sister, Sibling),
+  female(Sister).
+
+grandparentOf(Grandparent, Child) :- 
+  parentOf(Parent, Child),
+  parentOf(Grandparent, Parent).
+  
+auntOf(Aunt, Child) :-
+  parentOf(Parent, Child),
+  sisterOf(Aunt, Parent).
+
+uncleOf(Uncle, Child) :-
+  parentOf(Parent, Child),
+  brotherOf(Uncle, Parent).
+
+% I define ancestor as the immediate last person you descended from & onwards in this rule 
+ancestorOf(Ancestor, Person) :-
+  parentOf(Ancestor, Person).
+ancestorOf(Ancestor, Person) :-
+  parentOf(Parent, Person),
+  ancestorOf(Ancestor, Parent),
+  Ancestor \= Person.
