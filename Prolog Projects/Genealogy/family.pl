@@ -4,29 +4,7 @@
 % Date:   03/23/2023
 
 
-% Knowledge base for a family - Example
-/*
-male(bob).
-male(mike).
 
-female(jane).
-female(elaine).
-mother_of(jane, elaine).
-mother_of(jane, mike).
-mother_of(elaine, bob).
-
-father_of(david, elaine).
-father_of(david, mike).
-
-sibling_of(X, Y) :- mother_of(P, X), mother_of(P, Y).
-sibling_of(X, Y) :- father_of(P, X), father_of(P, Y).
-
-grandmother_of(X, Z) :- mother_of(X, Y), mother_of(Y, Z).
-grandmother_of(X, Z) :- mother_of(X, Y), father_of(Y, Z).
-*/
-
-
-% Amarna Family Tree - My knowledge base
 % The 'male(<name>)' defines that the specified person is male
 male(thutmosis_IV).
 male(yuya).
@@ -38,6 +16,7 @@ male(horemheb).
 male(setepenre).
 male(tutakhamun).
 male(ay).
+male(smenkhkare).
 
 % The 'female(<name>)' defines that the specified person is female
 female(iset).
@@ -54,13 +33,13 @@ female(neferneferure).
 female(ankhesenamun).
 female(nefertiti).
 
-
 % The 'parentOf(<parent>, <child>)' predicate defines that the first argument is the parent of the second 
+% Be wary that some of these facts are still subject to debate
 parentOf(thutmosis_IV, amenhotep_III).
 parentOf(yuya, tiye).
 parentOf(yuya, anen).
-parentOf(ay, nefertiti).
-parentOf(ay, mutnodjmet).
+parentOf(nefertiti, ay).
+parentOf(mutnodjmet, ay).
 parentOf(amenhotep_III, thutmose).
 parentOf(amenhotep_III, iset).
 parentOf(amenhotep_III, sitamun).
@@ -73,6 +52,7 @@ parentOf(akhenaten, neferneferure).
 parentOf(akhenaten, setepenre).
 parentOf(akhenaten, tutakhamun).
 parentOf(akhenaten, ankhesenamun).
+parentOf(akhenaten, smenkhkare).
 parentOf(mutemwiya, amenhotep_III).
 parentOf(thuya, tiye).
 parentOf(thuya, anen).
@@ -88,32 +68,42 @@ parentOf(nefertiti, neferneferure).
 parentOf(nefertiti, setepenre).
 parentOf(nefertiti, tutakhamun).
 parentOf(nefertiti, ankhesenamun).
-
+parentOf(nefertiti, smenkhkare).
 
 % The 'lifepsan(<person>, <birth>, <death>)' predicate defines the birth & death year of the specified person
-lifespan(mutemwiya, '14th century BC.', '1386 BC to 1353 BC.').
-lifespan(thuya, '1391 BC.', '1353 BC.').
-lifespan(tiye, '1398 BC.', '1338 BC.').
-lifespan(nefertiti, '1353 BC.', '1336 BC.').
-lifespan(thutmosis_IV, '1401 BC.', '1391 BC.').
-lifespan(yuya, '18th dynasty', '18th dynasty').
-lifespan(ay, 'late 14th century BC.', '1330-1335 BC.').
-lifespan(amenhotep_III, '1388 BC.', '1353 BC.').
-lifespan(akhenaten, '1353 BC.', '1336 BC.').
-lifespan(anen, '1350 BC.', '1325 BC.').
-lifespan(thutmose, '14th century BC.', '14th century BC.').
-lifespan(horemheb, '1320 BC.', '1292 BC.').
-lifespan(setepenre, '1279 BC.', '1213 BC.').
-lifespan(tutakhamun, '1341 BC.', '1323 BC.').
-lifespan(iset, '~1350 BC.', 'early 13th century BC.').
-lifespan(sitamun, '~1350 BC.', 'mid-14th, early 13th century BC.').
-lifespan(nebetah, '~1350 BC.', 'mid-14th, early 13th century BC.').
-lifespan(mutnodjmet, '~1350 BC.', '1290-1280 BC.').
-lifespan(meritaten, '~1351 BC', '1336-1337 BC.').
-lifespan(meketaten, '~1349 BC', '1335-1334 BC').
-lifespan(neferneferuaten, 'mid-14th century BC.', 'mid-1330s BC.').
-lifespan(neferneferure, '~1350 BC.', 'early 13th century BC.').
-lifespan(ankhesenamun, '~1348 BC.', '~1320 BC.').
+% These dates are negative since they took place during BCE
+% Be wary that some of these dates are estimates and/or subject to debate
+lifespan(mutemwiya, -1400, -1350).
+lifespan(thuya, -1400, -1350).
+lifespan(tiye, -1398, -1338).
+lifespan(nefertiti, -1370, -1330).
+lifespan(thutmosis_IV, -1412, -1390).
+lifespan(yuya, -1380, -1340).
+lifespan(ay, -1390, -1320). 
+lifespan(amenhotep_III, -1386, -1353).
+lifespan(akhenaten, -1372, -1335).
+lifespan(anen, -1340, -1320).
+lifespan(thutmose, -1390, -1352).
+lifespan(horemheb, -1319, -1292).
+lifespan(setepenre, -1350, -1330).
+lifespan(tutakhamun, -1341, -1323).
+lifespan(iset, -1370, -1330).
+lifespan(sitamun, -1370, -1350).
+lifespan(nebetah, -1400, -1350).
+lifespan(mutnodjmet, -1390, -1330).
+lifespan(meritaten, -1351, -1338).
+lifespan(meketaten, -1352, -1340).
+lifespan(neferneferuaten, -1350, -1335).
+lifespan(neferneferure, -1345, -1330).
+lifespan(ankhesenamun, -1348, -1322).
+
+% The 'successorOf(<next ruler>, <ruler>)' predicate defines the next pharaoh based on the current. 
+successorOf(amenhotep_III, thutmosis_IV).
+successorOf(akhenaten, amenhotep_III).
+successorOf(smenkhkare, akhenaten).
+successorOf(tutakhamun, smenkhkare).
+successorOf(ay, tutakhamun).
+successorOf(horemheb, ay).
 
 
 % The following rules are created based off of the predefined facts above.
@@ -158,10 +148,26 @@ uncleOf(Uncle, Child) :-
   parentOf(Parent, Child),
   brotherOf(Uncle, Parent).
 
-% I define ancestor as the immediate last person you descended from & onwards in this rule 
+% I define ancestor as the immediate last person you descended from & onwards
 ancestorOf(Ancestor, Person) :-
   parentOf(Ancestor, Person).
 ancestorOf(Ancestor, Person) :-
   parentOf(Parent, Person),
   ancestorOf(Ancestor, Parent),
   Ancestor \= Person.
+
+% I define descendent as the immediate succeeding person & onwards
+descendentOf(Descendent, Person) :-
+  parentOf(Person, Descendent).
+descendentOf(Descendent, Person) :-
+  parentOf(Person, Child),
+  descendentOf(Descendent, Child),
+  Descendent \= Person.
+
+% I define contemporary as someone who is alive at the same time
+contemporaryOf(Contemporary, Person) :-
+  lifespan(Person, B1, D1),
+  lifespan(Contemporary, B2, D2),
+  B2 < D1,
+  B1 < D2,
+  Contemporary \= Person.
