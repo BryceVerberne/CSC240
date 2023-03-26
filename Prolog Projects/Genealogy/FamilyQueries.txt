@@ -113,8 +113,132 @@ End of My Queries: Genealogy P1
 -----------------------------------
 My Rules: Genealogy P2
 -----------------------------------
+?- fatherOf(amenhotep_III, iset).
+true ;
+false.
+
+?- fatherOf(yuya, Child).
+Child = tiye ;
+Child = anen.
 
 
+?- motherOf(nefertiti, tutakhamun).
+true.
+
+?- motherOf(Mother, akhenaten).
+Mother = tiye.
+
+
+?- sonOf(tutakhamun, akhenaten).
+true ;
+false.
+
+?- sonOf(Son, amenhotep_III).
+Son = thutmose ;
+Son = akhenaten.
+
+
+?- daughterOf(nefertiti, ay).
+true.
+
+?- daughterOf(tiye, Parent).
+Parent = yuya ;
+Parent = thuya.
+
+
+?- siblingOf(tiye, anen).
+true ;
+true.
+
+?- siblingOf(tutakhamun, Sibling).
+Sibling = meritaten ;
+Sibling = meketaten ;
+Sibling = neferneferuaten ;
+Sibling = neferneferure ;
+Sibling = setepenre ;
+Sibling = ankhesenamun ;
+Sibling = meritaten ;
+Sibling = meketaten ;
+Sibling = neferneferuaten ;
+Sibling = neferneferure ;
+Sibling = setepenre ;
+Sibling = ankhesenamun.
+
+
+?- brotherOf(setepenre, meritaten).
+true ;
+true.
+
+?- brotherOf(akhenaten, Sibling).
+Sibling = thutmose ;
+Sibling = iset ;
+Sibling = sitamun ;
+Sibling = nebetah ;
+Sibling = thutmose ;
+Sibling = sitamun ;
+Sibling = nebetah ;
+Sibling = iset.
+
+
+?- sisterOf(tiye, anen).
+true ;
+true.
+
+?- sisterOf(Sister, nebetah).
+Sister = iset ;
+Sister = sitamun ;
+Sister = sitamun ;
+Sister = iset ;
+false.
+
+
+?- grandparentOf(thuya, akhenaten).
+true.
+
+?- grandparentOf(Grandparent, meritaten).
+Grandparent = amenhotep_III ;
+Grandparent = tiye ;
+Grandparent = ay.
+
+
+?- auntOf(sitamun, setepenre).
+true ;
+true ;
+false.
+
+- auntOf(Aunt, meritaten).
+Aunt = iset ;
+Aunt = sitamun ;
+Aunt = nebetah ;
+Aunt = sitamun ;
+Aunt = nebetah ;
+Aunt = iset ;
+Aunt = mutnodjmet ;
+
+
+?- uncleOf(anen, nebetah).
+true ;
+true.
+
+?- uncleOf(Uncle, nefertiti).
+false.
+
+
+?- ancestorOf(thutmosis_IV, nebetah).
+true ;
+false.
+
+?- ancestorOf(Ancestor, tutakhamun).
+Ancestor = akhenaten ;
+Ancestor = nefertiti ;
+Ancestor = amenhotep_III ;
+Ancestor = tiye ;
+Ancestor = thutmosis_IV ;
+Ancestor = mutemwiya ;
+Ancestor = yuya ;
+Ancestor = thuya ;
+Ancestor = ay ;
+false.
 -----------------------------------
 End of My Queries: Genealogy P2
 -----------------------------------
