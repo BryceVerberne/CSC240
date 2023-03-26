@@ -1,28 +1,4 @@
 -----------------------------------
-Example Queries
------------------------------------
-> swipl
-
-?- consult(family).
-true.
-?- mother_of(jane, elaine).
-true.
-
-?- mother_of(X, elaine).
-X = jane.
-
-?- male(X), mother_of(elaine,X).
-X = bob ;
-false.
-
-?- female(X), mother_of(elaine,X).
-false.
------------------------------------
-End of Example Queries
------------------------------------
-
-
------------------------------------
 My Queries: Genealogy P1
 -----------------------------------
 > swipl
@@ -111,7 +87,7 @@ End of My Queries: Genealogy P1
 
 
 -----------------------------------
-My Rules: Genealogy P2
+My Queries: Genealogy P2
 -----------------------------------
 ?- fatherOf(amenhotep_III, iset).
 true ;
@@ -239,6 +215,59 @@ Ancestor = yuya ;
 Ancestor = thuya ;
 Ancestor = ay ;
 false.
+
+
+?- descendentOf(nebetah, thuya).
+true ;
+false.
+
+?- descendentOf(Descendent, amenhotep_III).
+Descendent = thutmose ;
+Descendent = iset ;
+Descendent = sitamun ;
+Descendent = nebetah ;
+Descendent = akhenaten ;
+Descendent = meritaten ;
+Descendent = meketaten ;
+Descendent = neferneferuaten ;
+Descendent = neferneferure ;
+Descendent = setepenre ;
+Descendent = tutakhamun ;
+Descendent = ankhesenamun ;
+false.
+
+
+?- successorOf(ay, amenhotep_III).
+false.
+
+?- successorOf(akhenaten, amenhotep_III).
+true.
+
+?- successorOf(Successor, smenkhkare).
+Successor = tutakhamun.
+
+
+?- contemporaryOf(horemheb, ankhesenamun).
+false.
+
+?- contemporaryOf(mutemwiya, thutmose).
+true.
+
+?- contemporaryOf(Contemporary, neferneferuaten).
+Contemporary = tiye ;
+Contemporary = nefertiti ;
+Contemporary = yuya ;
+Contemporary = ay ;
+Contemporary = akhenaten ;
+Contemporary = anen ;
+Contemporary = setepenre ;
+Contemporary = tutakhamun ;
+Contemporary = iset ;
+Contemporary = mutnodjmet ;
+Contemporary = meritaten ;
+Contemporary = meketaten ;
+Contemporary = neferneferure ;
+Contemporary = ankhesenamun.
 -----------------------------------
 End of My Queries: Genealogy P2
 -----------------------------------
