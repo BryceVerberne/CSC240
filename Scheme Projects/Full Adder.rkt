@@ -87,7 +87,7 @@
 
 
 ;-----------------------
-; Test Cases.  
+; Test Cases
 ;-----------------------
 
 (displayln "Testing Logic Gate Methods")
