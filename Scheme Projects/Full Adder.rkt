@@ -51,6 +51,18 @@
 ; Write the FullAdder Function Here
 ;-----------------------
 
+; The fullAdder function takes three Boolean input values a, b, and x, and displays the
+; corresponding sum and carry output values of a full-adder circuit to the console.
+(define (fullAdder a b x)
+  ; Sum = (a ⊕ b) ⊕ x
+  (display "Sum:   ")
+  (displayln (xorGate (xorGate a b) x))
+
+  ; Carry = ((a + b) • x) + (a • b)
+  (display "Carry: ")
+  (displayln (orGate (andGate (orGate a b) x) (andGate a b)))
+  (newline)
+)
 
 ;-----------------------
 ; Write the n-bitAdder Function Here
@@ -89,21 +101,22 @@
 (xorGate 1 0)
 (xorGate 1 1)
 
+
 (newline)
-(writeln "Testing Fulladder Methods")
 (newline)
+(displayln "Testing Fulladder Methods")
+(fullAdder 0 0 0)
+(fullAdder 0 0 1)
+(fullAdder 0 1 0)
+(fullAdder 0 1 1)
+(fullAdder 1 0 0)
+(fullAdder 1 0 1)
+(fullAdder 1 1 0)
+(fullAdder 1 1 1)
 
-;(fulladder 0 0 0)
-;(fulladder 0 0 1)
-;(fulladder 0 1 0)
-;(fulladder 0 1 1)
-;(fulladder 1 0 0)
-;(fulladder 1 0 1)
-;(fulladder 1 1 0)
-;(fulladder 1 1 1)
 
-
-(writeln "Testing n bit adder Methods")
+(newline)
+(displayln "Testing n bit adder Methods")
 (newline)
 
 ;(n-bit-addr '(0 1 0) '(0 1 1) 1)
