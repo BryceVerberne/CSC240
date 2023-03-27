@@ -51,23 +51,30 @@
 ; Write the FullAdder Function Here
 ;-----------------------
 
-; The fullAdder function takes three Boolean input values a, b, and x, and displays the
+; The fullAdder function takes three input values a, b, and x, and displays the
 ; corresponding sum and carry output values of a full-adder circuit to the console.
+; Sum & Carry Logic: 
+;   Sum = (a ⊕ b) ⊕ x
+;   Carry = ((a + b) • x) + (a • b)
 (define (fullAdder a b x)
-  ; Sum = (a ⊕ b) ⊕ x
-  (display "Sum:   ")
-  (displayln (xorGate (xorGate a b) x))
-
-  ; Carry = ((a + b) • x) + (a • b)
-  (display "Carry: ")
-  (displayln (orGate (andGate (orGate a b) x) (andGate a b)))
-  (newline)
+  (cons (xorGate (xorGate a b) x) (orGate (andGate (orGate a b) x) (andGate a b))))
 )
 
 ;-----------------------
 ; Write the n-bitAdder Function Here
 ;-----------------------
 
+
+(define (nBitAdder val1 val2 c)
+  (let ((rVal1 (reverse val1)))
+    (let ((rVal2 (reverse val2)))
+      (define (adder val1 val2)
+        (if (or (null? val1) (null? val2))
+            '()
+            (cons (fullAdder (val
+    )
+  )
+)                  
 
 ;-----------------------
 ; Below are your test cases.  
@@ -116,9 +123,10 @@
 
 
 (newline)
+(newline)
 (displayln "Testing n bit adder Methods")
 (newline)
 
-;(n-bit-addr '(0 1 0) '(0 1 1) 1)
-;(n-bit-addr '(1 1 1) '(0 0 0) 1)
-;(n-bit-addr '(1 1 0 0 1 0 1 0 1) '(1 0 1 1 0 0 0 1 1) 0)
+;(nBitAdder '(0 1 0) '(0 1 1) 1)
+;(nBitAdder '(1 1 1) '(0 0 0) 1)
+;(nBitAdder '(1 1 0 0 1 0 1 0 1) '(1 0 1 1 0 0 0 1 1) 0)
