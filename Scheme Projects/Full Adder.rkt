@@ -1,4 +1,4 @@
-; Title:  Scheme Functions w/ Decisions
+; Title:  Full Adder
 ; Desc:   In this program, I simulate the logic of a full adder.
 ; Author: Bryce Verberne
 ; Date:   03/22/2023
@@ -8,7 +8,7 @@
 #lang racket
 
 ;-----------------------
-; Write the Logic Gate Functions Here
+; Logic Gate Functions
 ;-----------------------
 
 ; The 'andGate' function is a logical function that takes two input parameters, 'a' and 'b', and
@@ -47,8 +47,9 @@
   )
 )
 
+
 ;-----------------------
-; Write the FullAdder Function Here
+; FullAdder Function
 ;-----------------------
 
 ; The fullAdder function takes three input values a, b, and x, and displays the
@@ -57,29 +58,37 @@
 ;   Sum = (a ⊕ b) ⊕ x
 ;   Carry = ((a + b) • x) + (a • b)
 (define (fullAdder a b x)
-  (cons (xorGate (xorGate a b) x) (orGate (andGate (orGate a b) x) (andGate a b))))
+  (cons (xorGate (xorGate a b) x) (orGate (andGate (orGate a b) x) (andGate a b)))
 )
 
+
 ;-----------------------
-; Write the n-bitAdder Function Here
+; nBitAdder Function
 ;-----------------------
 
-
+; The nBitAdder function computes the sum of two binary numbers represented as lists, and returns
+; the result with the carry bit as a pair.
 (define (nBitAdder val1 val2 c)
-  (let ((rVal1 (reverse val1)))
-    (let ((rVal2 (reverse val2)))
-      (define (adder val1 val2)
-        (if (or (null? val1) (null? val2))
-            '()
-            (cons (fullAdder (val
+  (let ((rVal1 (reverse val1))
+        (rVal2 (reverse val2)))
+    (define (adder lst1 lst2 carry)
+      (if (or (null? lst1) (null? lst2))
+          (cons carry '())
+          (let ((sum (fullAdder (car lst1) (car lst2) carry)))
+                (cons (car sum) (adder (cdr lst1) (cdr lst2) (cdr sum)))
+          )
+      )
+    )
+    (let ((result (adder rVal1 rVal2 c)))
+      (cons (cdr (reverse result)) (car (reverse result)))
     )
   )
-)                  
+)
+
 
 ;-----------------------
-; Below are your test cases.  
+; Test Cases.  
 ;-----------------------
-
 
 (displayln "Testing Logic Gate Methods")
 
@@ -125,8 +134,7 @@
 (newline)
 (newline)
 (displayln "Testing n bit adder Methods")
-(newline)
 
-;(nBitAdder '(0 1 0) '(0 1 1) 1)
-;(nBitAdder '(1 1 1) '(0 0 0) 1)
-;(nBitAdder '(1 1 0 0 1 0 1 0 1) '(1 0 1 1 0 0 0 1 1) 0)
+(nBitAdder '(0 1 0) '(0 1 1) 1)
+(nBitAdder '(1 1 1) '(0 0 0) 1)
+(nBitAdder '(1 1 0 0 1 0 1 0 1) '(1 0 1 1 0 0 0 1 1) 0)
