@@ -25,7 +25,7 @@ Here are some example queries you can run with the program:
 - fatherOf(X, tutakhamun).: returns the father of Tutankhamun
 - motherOf(X, nefertiti).: returns the mother of Nefertiti
 
-Additional queries can be found in the FamilyQueries.txt file in this directory.
+Additional queries can be found in the FamilyQueries.txt file.
 
 ## Disclaimer
 Be wary that some of the facts and dates in the program are still subject to debate and interpretation.
