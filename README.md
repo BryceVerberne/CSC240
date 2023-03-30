@@ -1,4 +1,4 @@
-# CSC240
+# CSC 240 - Introduction to Different Programming Languages
 
 This repository contains programs written for the CSC240 Introduction to Different Programming Languages course at Scottsdale Community College, taught by Professor Meacham.
 
