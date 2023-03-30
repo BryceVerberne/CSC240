@@ -1,6 +1,6 @@
 # Marvel Heroes
 
-In this program, I am creating a Marvel-themed expert system that identifies major characters from the Marvel Cinematic Universe based on user input.
+This Marvel-themed expert system identifies major characters from the Marvel Cinematic Universe based on user input.
 
 ## Description
 
