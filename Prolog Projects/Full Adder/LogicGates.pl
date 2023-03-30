@@ -47,7 +47,7 @@ xorGate(A, B) :-
 % Testing Logic Gate Methods
 % andGate(0 0).
 % andGate(0 1).
-% andGate(1, 0).
+% andGate(1, 0). 
 % andGate(1, 1).
 
 % orGate(0, 0).
