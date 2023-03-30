@@ -5,57 +5,77 @@
 
 
 
-%;-----------------------
-%; Logic Gate Functions
-%;-----------------------
+% -----------------------
+% Logic Gate Predicates
+% -----------------------
+
+% This predicate represents the logical AND gate.
+% It returns true if both input arguments add up to 2.
+andGate(A, B) :-
+  A + B =:= 2.
+
+% This predicate represents the logical OR gate.
+% It returns true if both input arguments do not add up to 0.
+orGate(A, B) :-
+  A + B =\= 0.
+
+% This predicate represents the logical NOT gate.
+% It returns true if the argument is 0 & false if 1.
+notGate(A) :-
+  A =:= 0.
+
+% This predicate represents the logical XOR gate.
+% It returns true if the two input arguments are not equal to each other.
+xorGate(A, B) :-
+  A =\= B.
+  
+
+% -----------------------
+% FullAdder Predicate
+% -----------------------
 
 
-%;-----------------------
-%; FullAdder Function
-%;-----------------------
+% -----------------------
+% nBitAdder Predicate
+% -----------------------
 
 
-%;-----------------------
-%; nBitAdder Function
-%;-----------------------
+% -----------------------
+% Test Cases  
+% -----------------------
+
+% Testing Logic Gate Methods
+% andGate(0 0).
+% andGate(0 1).
+% andGate(1, 0).
+% andGate(1, 1).
+
+% orGate(0, 0).
+% orGate(0, 1).
+% orGate(1, 0).
+% orGate(1, 1).
+
+% notGate(0).
+% notGate(1).
+
+% xorGate(0, 0).
+% xorGate(0, 1).
+% xorGate(1, 0).
+% xorGate(1, 1).
 
 
-%;-----------------------
-%; Test Cases  
-%;-----------------------
-
-%(newline)
-%(writeln "Testing Logic Gate Methods")
-%(newline)
-%(andgate 0 0)
-%(andgate 0 1)
-%(andgate 1 0)
-%(andgate 1 1)
-%(orgate 0 0)
-%(orgate 0 1)
-%(orgate 1 0)
-%(orgate 1 1)
-%(notgate 0)
-%(andgate 1)
-%(xorgate 0 0)
-%(xorgate 0 1)
-%(xorgate 1 0)
-%(xorgate 1 1)
+% Testing Fulladder Methods
+% fullAdder(0, 0, 0).
+% fullAdder(0, 0, 1).
+% fullAdder(0, 1, 0).
+% fullAdder(0, 1, 1).
+% fullAdder(1, 0, 0).
+% fullAdder(1, 0, 1).
+% fullAdder(1, 1, 0).
+% fullAdder(1, 1, 1).
 
 
-%(writeln "Testing Fulladder Methods")
-%(newline)
-%(fulladder 0 0 0)
-%(fulladder 0 0 1)
-%(fulladder 0 1 0)
-%(fulladder 0 1 1)
-%(fulladder 1 0 0)
-%(fulladder 1 0 1)
-%(fulladder 1 1 0)
-%(fulladder 1 1 1)
-
-(writeln "Testing n bit adder Methods")
-(newline)
-(n-bit-addr '(0 1 0) '(0 1 1) 1)
-(n-bit-addr '(1 1 1) '(0 0 0) 1)
-(n-bit-addr '(1 1 0 0 1 0 1 0 1) '(1 0 1 1 0 0 0 1 1) 0)
+% Testing n bit adder Methods
+% nBitAdder([0,1,0], [0,1,1], 1).
+% nBitAdder([1,1,1], [0,0,0], 1).
+% nBitAdder([1,1,0,0,1,0,1,0,1], [1,0,1,1,0,0,0,1,1], 0).
