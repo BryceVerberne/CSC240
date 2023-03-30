@@ -35,4 +35,4 @@ This repository is for educational purposes, and contributions are not currently
 
 ## License <a name="license"></a>
 
-The programs in this repository are for educational purposes only. They are not licensed for reuse, modification, or distribution.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
