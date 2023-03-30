@@ -1,5 +1,5 @@
 % Title:  Marvel Heroes
-% Desc:   In this program, I am creating a Marvel-themed expert system.
+% Desc:   This program identifies major characters from the Marvel Cinematic Universe based on user input.
 % Author: Bryce Verberne
 % Date:   03/27/2023
 
