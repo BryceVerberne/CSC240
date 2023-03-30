@@ -8,7 +8,7 @@ The Amarna Family Tree Genealogy program uses Prolog to define relationships and
 
 ## Usage
 
-1. Install a Prolog interpreter, such as SWI-Prolog.
+1. Install a Prolog interpreter, such as [SWI-Prolog](https://www.swi-prolog.org/).
 2. Load the genealogy program into the Prolog interpreter.
 3. Query the knowledge base to explore relationships and properties of the Amarna Family Tree members.
 
