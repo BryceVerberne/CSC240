@@ -63,38 +63,91 @@ intro :-
 
 % Possibilities
 may_be(iron_man) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, yes),
+  user_says(cape, no).
 
 may_be(captain_america) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, no),
+  user_says(angry, no),
+  user_says(shield, yes).
 
 may_be(thor) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, yes),
+  user_says(cape, yes),
+  user_says(hammer, yes).
 
 may_be(hulk) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, no),
+  user_says(angry, yes).
 
 may_be(black_widow) :-
-  user_says(male, no).
+  user_says(male, no),
+  user_says(spy, yes).
 
 may_be(hawkeye) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, no),
+  user_says(angry, no),
+  user_says(shield, no),
+  user_says(suit, no).
 
 may_be(spider_man) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, no),
+  user_says(angry, no),
+  user_says(shield, no),
+  user_says(suit, yes),
+  user_says(webs, yes).
 
 may_be(doctor_strange) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, yes),
+  user_says(cape, yes),
+  user_says(hammer, no).
 
 may_be(captain_marvel) :-
-  user_says(male, no).
+  user_says(male, no),
+  user_says(spy, no).
 
 may_be(black_panther) :-
-  user_says(male, yes).
+  user_says(male, yes),
+  user_says(fly, no),
+  user_says(angry, no),
+  user_says(shield, no),
+  user_says(suit, yes),
+  user_says(webs, no).
 
 % Text of Questions
 ask_question(male) :-
-  write('Is the character a male?'), nl.
+  write('Is your character male?'), nl.
+
+ask_question(fly) :-
+  write('Can he fly?'), nl.
+
+ask_question(cape) :-
+  write('Do they have a cape?'), nl.
+
+ask_question(hammer) :-
+  write('Is he in love with a hammer?'), nl.
+
+ask_question(angry) :-
+  write('Do they turn green when they\'re angry?'), nl.
+
+ask_question(shield) :-
+  write('Does your character wield a shield?'), nl.
+
+ask_question(suit) :-
+  write('Does he wear a suit of armor?'), nl.
+
+ask_question(webs) :-
+  write('Does your character shoot webs?'), nl.
+
+ask_question(spy) :-
+  write('Is she a highly skilled spy?'), nl.
 
 % Explanations for the various diagnoses
 explain(iron_man) :- nl,
