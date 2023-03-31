@@ -21,6 +21,25 @@ The program can identify the following Marvel characters:
 - Captain Marvel/Carol Danvers
 - Black Panther/T'Challa
 
+## Usage
+
+1. Ensure you have a compatible Prolog interpreter installed on your system (e.g. [SWI-Prolog](https://www.swi-prolog.org/Download.html)).
+2. Load the `marvel_heroes.pl` file into the Prolog interpreter.
+3. Run the `avengers_assemble.` predicate to start the program.
+4. Follow the on-screen prompts to answer the questions.
+
+## Program Structure
+
+The program consists of several parts:
+
+- `avengers_assemble`: The main predicate that runs the program.
+- `try_all_possibilities`: Tries all possibilities to identify the character.
+- `user_says`, `get_yes_or_no`, `interpret`: Predicates to handle user input and store answers.
+- `intro`: Displays an introduction message.
+- `may_be`: A set of predicates that describe different Marvel characters.
+- `ask_question`: Displays the question for the user.
+- `explain`: Displays the final result based on user input.
+
 ## Example
 
 ```plaintext
@@ -45,26 +64,3 @@ y
 The character your looking for is Captain America/Steve Rogers.
 false.
 ```
-
-## How to Run
-
-1. Ensure you have a compatible Prolog interpreter installed on your system (e.g., [SWI-Prolog](https://www.swi-prolog.org/Download.html)).
-2. Load the `marvel_heroes.pl` file into the interpreter.
-3. Run the `avengers_assemble.` predicate to start the program.
-4. Follow the on-screen prompts to answer the questions.
-
-## Program Structure
-
-The program consists of several parts:
-
-- `avengers_assemble`: The main predicate that runs the program.
-- `try_all_possibilities`: Tries all possibilities to identify the character.
-- `user_says`, `get_yes_or_no`, `interpret`: Predicates to handle user input and store answers.
-- `intro`: Displays an introduction message.
-- `may_be`: A set of predicates that describe different Marvel characters.
-- `ask_question`: Displays the question for the user.
-- `explain`: Displays the final result based on user input.
-
-## License
-
-This project is licensed under the same terms as the overall repository. See the [LICENSE](../LICENSE) file in the root directory for details.
