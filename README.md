@@ -1,10 +1,10 @@
 # CSC 240 - Introduction to Different Programming Languages
 
-This repository contains programs written for the CSC240 Introduction to Different Programming Languages course at Scottsdale Community College, taught by Professor Meacham.
+Welcome to my CSC240 repository! This repository contains projects from my CSC 240 course: Introduction to Different Programming Languages, taken at Scottsdale Community College, taught by Professor Meacham.
 
 ## Course Description
 
-CSC240 covers the fundamentals of various programming languages, such as Scheme, Prolog, C, and C++. The course provides a solid foundation in understanding the unique features, syntax, and paradigms of each language, enabling students to develop their problem-solving skills and adapt to new programming environments.
+CSC 240 is a course that covers the fundamentals of various programming languages, such as Scheme, Prolog, C, and C++. It provides a solid foundation in understanding the unique features, syntax, and paradigms of each language, enabling students to develop their problem-solving skills and adapt to new programming environments.
 
 ## Repository Contents
 
@@ -17,21 +17,15 @@ This repository contains the following types of programs:
 
 ## Getting Started
 
-To run the programs in this repository, you will need the appropriate compilers or interpreters for each programming language:
+To run and modify the code in this repository, you will need the appropriate compilers or interpreters for each programming language:
 
 - For **Scheme**, install an interpreter such as [Racket](https://racket-lang.org/).
 - For **Prolog**, install a compiler such as [SWI-Prolog](https://www.swi-prolog.org/).
 - For **C** and **C++**, install a compiler such as [GCC](https://gcc.gnu.org/).
 
-## Usage>
+## Disclaimer
 
-1. Clone this repository to your local machine.
-2. Navigate to the folder containing the program you wish to run.
-3. Use the appropriate compiler or interpreter to run the program.
-
-## Contributing
-
-This repository is for educational purposes, and contributions are not currently being accepted. If you have any questions or need assistance, please contact the repository owner.
+These projects are provided for educational purposes only. While the code is free to use, modify, or distribute, please do not use it to directly copy or plagiarize assignments for your coursework. Instead, use the material as a reference to help you understand the unique features, syntax, and paradigms of each langauge. 
 
 ## License
 
