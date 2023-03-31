@@ -105,6 +105,9 @@ dkms.conf
 # Ignore *.nix files
 *.nix
 
+# Ignore .lesson files
+.lesson/
+
 
 # Other Files:
 # Ignore IntelliJ IDEA project files
