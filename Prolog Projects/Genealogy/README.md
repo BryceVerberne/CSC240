@@ -8,8 +8,8 @@ The Amarna Family Tree Genealogy program uses Prolog to define relationships and
 
 ## Usage
 
-1. Install a Prolog interpreter, such as [SWI-Prolog](https://www.swi-prolog.org/).
-2. Load the genealogy program into the Prolog interpreter.
+1. Ensure you have a compatible Prolog interpreter installed on your system (e.g. [SWI-Prolog](https://www.swi-prolog.org/Download.html)).
+2. Load the `family.pl` program into the Prolog interpreter.
 3. Query the knowledge base to explore relationships and properties of the Amarna Family Tree members.
 
 ## Facts
@@ -49,7 +49,3 @@ true.
 Please note that this genealogical knowledge base may not contain the most recent or comprehensive information, as new discoveries and research can change our understanding of ancient Egyptian history. Some relationships and dates in the program may be subject to debate or further research.
 
 Feel free to modify the program to incorporate new information or to adjust relationships and dates according to alternative theories.
-
-## License
-
-This project is open source and available for anyone to use or modify.
