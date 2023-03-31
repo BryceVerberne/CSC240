@@ -98,6 +98,14 @@ Mkfile.old
 dkms.conf
 
 
+# Replit Files:
+# Ignore .replit files
+.replit
+
+# Ignore *.nix files
+*.nix
+
+
 # Other Files:
 # Ignore IntelliJ IDEA project files
 .idea/
@@ -113,3 +121,5 @@ CMakeLists.txt
 
 # Ignore files ending in .rkt~
 *.rkt~
+
+
