@@ -6,26 +6,30 @@
 
 
 % -----------------------
-% Logic Gate Predicates
+% Logic Gate Functions
 % -----------------------
 
-% The 'andGate(<A>, <B>, <Y>)' predicate represents the logical AND gate for two binary bits.
+% 'andGate(<A>, <B>, <Y>)' 
+% This function represents the logical AND gate for two binary bits.
 andGate(0, 0, 0).
 andGate(0, 1, 0).
 andGate(1, 0, 0).
 andGate(1, 1, 1).
 
-% The 'orGate(<A>, <B>, <Y>)' predicate represents the logical OR gate for two binary bits.
+% 'orGate(<A>, <B>, <Y>)' 
+% This function represents the logical OR gate for two binary bits.
 orGate(0, 0, 0).
 orGate(0, 1, 1).
 orGate(1, 0, 1).
 orGate(1, 1, 1).
 
-% The 'notGate(<A>, <Y>)' predicate represents the logical NOT gate for one binary bit.
+% 'notGate(<A>, <Y>)' 
+% This function represents the logical NOT gate for one binary bit.
 notGate(0, 1).
 notGate(1, 0).
 
-% The 'xorGate(<A>, <B>, <Y>)' predicate represents the logical XOR gate for two binary bits.
+% 'xorGate(<A>, <B>, <Y>)' 
+% This function represents the logical XOR gate for two binary bits.
 xorGate(0, 0, 0).
 xorGate(0, 1, 1).
 xorGate(1, 0, 1).
@@ -33,11 +37,11 @@ xorGate(1, 1, 0).
 
 
 % -----------------------
-% FullAdder Predicate
+% FullAdder Function
 % -----------------------
 
-% This function simulates a full adder. It takes two binary digits & a carry-in bit as input, 
-% & produces the corresponding sum & carry-out bits.
+% This function simulates a full adder. It takes two binary digits & a 
+% carry-in bit as input, & produces the corresponding sum & carry-out bits.
 fullAdder(A, B, Cin, Sum, Cout) :-
   % Sum = (A ⊕ B) ⊕ Cin
   xorGate(A, B, C),
@@ -51,9 +55,41 @@ fullAdder(A, B, Cin, Sum, Cout) :-
 
 
 % -----------------------
-% nBitAdder Predicate
+% nBitAdder Function
 % -----------------------
 
+rmvLast(List, NewList) :-
+  reverse(List, [_|T]),
+  reverse(T, NewList).
+
+nBitAdder(A, B, Cin, Sum, Cout) :-
+  length(A, Length),
+  Length = 0.
+
+nBitAdder(A, B, Cin, Sum, Cout) :-
+  length(A, LengthA),
+
+  nth1(LengthA, A, ValA),
+  nth1(LengthA, B, ValB),
+
+  fullAdder(ValA, ValB, Cin, S, C),
+
+  write(A), nl,
+  write(B), nl,
+
+  rmvLast(A, NewA), 
+  rmvLast(B, NewB),
+
+  write(NewA),
+  write(ValA), nl,
+  write(NewB),
+  write(ValB), nl,
+
+  write('This is the sum: '),
+  write(S), nl,
+
+  nBitAdder(NewA, NewB, C, S, Cout).
+  
 
 % -----------------------
 % Test Cases  
