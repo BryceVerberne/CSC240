@@ -1,0 +1,273 @@
+-----------------------------------
+My Queries: Genealogy P1
+-----------------------------------
+> swipl
+
+?- consult(family).
+true.
+
+halt.
+
+
+?- parentOf(tiye, akhenaten).
+true.
+
+?- parentOf(yuya, nebetah).
+false.
+
+?- parentOf(Parent, meritaten).
+Parent = akhenaten ;
+Parent = nefertiti.
+
+?- parentOf(thuya, Child).
+Child = tiye ;
+Child = anen.
+
+
+?- lifespan(mutemwiya, '14th century BC.', '1386 BC to 1353 BC.').
+true.
+
+?- lifespan(yuya, '18th dynasty', '1336-1337 BC.').
+false.
+
+?- lifespan(mutemwiya, Birth, Death).
+Birth = '14th century BC.',
+Death = '1386 BC to 1353 BC.'.
+
+?- lifespan(X, '1391 BC.', '1353 BC.').
+X = thuya ;
+false.
+
+?- lifespan(Person, '~1350 BC.', Death).
+Person = iset,
+Death = 'early 13th century BC.' ;
+Person = sitamun,
+Death = 'mid-14th, early 13th century BC.' ;
+Person = nebetah,
+Death = 'mid-14th, early 13th century BC.' ;
+Person = mutnodjmet,
+Death = '1290-1280 BC.' ;
+Person = neferneferure,
+Death = 'early 13th century BC.'.
+
+
+?- rulerOf(neferneferuaten, 'Egypt', '1353 BC.', '1336 BC').
+true.
+
+?- rulerOf(ay, 'Egypt', '1332 BC.', '1323 BC.').
+false.
+
+?- rulerOf(Ruler, _, '1319 BC.', _).
+Ruler = horemheb.
+
+?- rulerOf(thutmosis_IV, Country, Began, Ended).
+Country = 'Egypt',
+Began = '1401 BC.',
+Ended = '1391 BC.'.
+
+?- rulerOf(Ruler, 'Egypt', _, _).
+Ruler = thutmosis_IV ;
+Ruler = amenhotep_III ;
+Ruler = akhenaten ;
+Ruler = horemheb ;
+Ruler = setepenre ;
+Ruler = tutankhamun ;
+Ruler = ay ;
+Ruler = neferneferuaten.
+
+?- rulerOf(Ruler, 'Egypt', '1401 BC.', _).
+Ruler = thutmosis_IV.
+
+?- rulerOf(Ruler, Country, '1319 BC.', '1292 BC.').
+Ruler = horemheb,
+Country = 'Egypt'.
+-----------------------------------
+End of My Queries: Genealogy P1
+-----------------------------------
+
+
+-----------------------------------
+My Queries: Genealogy P2
+-----------------------------------
+?- fatherOf(amenhotep_III, iset).
+true ;
+false.
+
+?- fatherOf(yuya, Child).
+Child = tiye ;
+Child = anen.
+
+
+?- motherOf(nefertiti, tutakhamun).
+true.
+
+?- motherOf(Mother, akhenaten).
+Mother = tiye.
+
+
+?- sonOf(tutakhamun, akhenaten).
+true ;
+false.
+
+?- sonOf(Son, amenhotep_III).
+Son = thutmose ;
+Son = akhenaten.
+
+
+?- daughterOf(nefertiti, ay).
+true.
+
+?- daughterOf(tiye, Parent).
+Parent = yuya ;
+Parent = thuya.
+
+
+?- siblingOf(tiye, anen).
+true ;
+true.
+
+?- siblingOf(tutakhamun, Sibling).
+Sibling = meritaten ;
+Sibling = meketaten ;
+Sibling = neferneferuaten ;
+Sibling = neferneferure ;
+Sibling = setepenre ;
+Sibling = ankhesenamun ;
+Sibling = meritaten ;
+Sibling = meketaten ;
+Sibling = neferneferuaten ;
+Sibling = neferneferure ;
+Sibling = setepenre ;
+Sibling = ankhesenamun.
+
+
+?- brotherOf(setepenre, meritaten).
+true ;
+true.
+
+?- brotherOf(akhenaten, Sibling).
+Sibling = thutmose ;
+Sibling = iset ;
+Sibling = sitamun ;
+Sibling = nebetah ;
+Sibling = thutmose ;
+Sibling = sitamun ;
+Sibling = nebetah ;
+Sibling = iset.
+
+
+?- sisterOf(tiye, anen).
+true ;
+true.
+
+?- sisterOf(Sister, nebetah).
+Sister = iset ;
+Sister = sitamun ;
+Sister = sitamun ;
+Sister = iset ;
+false.
+
+
+?- grandparentOf(thuya, akhenaten).
+true.
+
+?- grandparentOf(Grandparent, meritaten).
+Grandparent = amenhotep_III ;
+Grandparent = tiye ;
+Grandparent = ay.
+
+
+?- auntOf(sitamun, setepenre).
+true ;
+true ;
+false.
+
+- auntOf(Aunt, meritaten).
+Aunt = iset ;
+Aunt = sitamun ;
+Aunt = nebetah ;
+Aunt = sitamun ;
+Aunt = nebetah ;
+Aunt = iset ;
+Aunt = mutnodjmet ;
+
+
+?- uncleOf(anen, nebetah).
+true ;
+true.
+
+?- uncleOf(Uncle, nefertiti).
+false.
+
+
+?- ancestorOf(thutmosis_IV, nebetah).
+true ;
+false.
+
+?- ancestorOf(Ancestor, tutakhamun).
+Ancestor = akhenaten ;
+Ancestor = nefertiti ;
+Ancestor = amenhotep_III ;
+Ancestor = tiye ;
+Ancestor = thutmosis_IV ;
+Ancestor = mutemwiya ;
+Ancestor = yuya ;
+Ancestor = thuya ;
+Ancestor = ay ;
+false.
+
+
+?- descendentOf(nebetah, thuya).
+true ;
+false.
+
+?- descendentOf(Descendent, amenhotep_III).
+Descendent = thutmose ;
+Descendent = iset ;
+Descendent = sitamun ;
+Descendent = nebetah ;
+Descendent = akhenaten ;
+Descendent = meritaten ;
+Descendent = meketaten ;
+Descendent = neferneferuaten ;
+Descendent = neferneferure ;
+Descendent = setepenre ;
+Descendent = tutakhamun ;
+Descendent = ankhesenamun ;
+false.
+
+
+?- successorOf(ay, amenhotep_III).
+false.
+
+?- successorOf(akhenaten, amenhotep_III).
+true.
+
+?- successorOf(Successor, smenkhkare).
+Successor = tutakhamun.
+
+
+?- contemporaryOf(horemheb, ankhesenamun).
+false.
+
+?- contemporaryOf(mutemwiya, thutmose).
+true.
+
+?- contemporaryOf(Contemporary, neferneferuaten).
+Contemporary = tiye ;
+Contemporary = nefertiti ;
+Contemporary = yuya ;
+Contemporary = ay ;
+Contemporary = akhenaten ;
+Contemporary = anen ;
+Contemporary = setepenre ;
+Contemporary = tutakhamun ;
+Contemporary = iset ;
+Contemporary = mutnodjmet ;
+Contemporary = meritaten ;
+Contemporary = meketaten ;
+Contemporary = neferneferure ;
+Contemporary = ankhesenamun.
+-----------------------------------
+End of My Queries: Genealogy P2
+-----------------------------------
