@@ -1,5 +1,5 @@
 ; Title:  Full Adder
-; Desc:   In this program, I simulate the logic of a full adder.
+; Desc:   This program simulates the logic of a full adder.
 ; Author: Bryce Verberne
 ; Date:   03/22/2023
 
@@ -11,8 +11,8 @@
 ; Logic Gate Functions
 ;-----------------------
 
-; The 'andGate' function is a logical function that takes two input parameters, 'a' and 'b', and
-; returns an ouput value that represents the logical AND operation between the two inputs.
+; The 'andGate' function takes two inputs, 'a' and 'b',
+; and returns the output value for their logical AND operation.
 (define (andGate a b)
   (if (eq? (+ a b) 2)
     1
@@ -20,8 +20,8 @@
   )
 )
 
-; The 'orGate' function is a logical function that takes two input parameters, 'a' and 'b', and
-; returns an ouput value that represents the logical OR operation between the two inputs.
+; The 'orGate' function takes two inputs, 'a' and 'b',
+; and returns the output value for their logical OR operation.
 (define (orGate a b)
   (if (eq? (+ a b) 0)
     0
@@ -29,8 +29,8 @@
   )
 )
 
-; The notGate function is a logical function that takes one input parameter, 'a', and returns an
-; output value that represents the logical NOT operation on the input.
+; The 'notGate' function takes one input parameter, 'a',
+; and returns the logical NOT operation on the input.
 (define (notGate a)
   (if (eq? a 0)
       1
@@ -38,8 +38,8 @@
   )
 )
 
-; The 'xorGate' function takes two input values 'a' and 'b', and returns an output value that
-; represents the logical XOR (exclusive OR) operation between the two inputs.
+; The 'xorGate' function takes two inputs, 'a' and 'b',
+; and returns the output value for their logical XOR operation.
 (define (xorGate a b)
   (if (eq? a b)
       0
@@ -52,12 +52,12 @@
 ; FullAdder Function
 ;-----------------------
 
-; The fullAdder function takes three input values a, b, and x, and displays the
-; corresponding sum and carry output values of a full-adder circuit to the console.
-; Sum & Carry Logic: 
-;   Sum = (a ⊕ b) ⊕ x
-;   Carry = ((a + b) • x) + (a • b)
+; The fullAdder function displays the sum and carry output values
+; of a full-adder circuit, given three input values, a, b, and x, to the console.
 (define (fullAdder a b x)
+  ; Sum & Carry Logic: 
+  ;   Sum = (a ⊕ b) ⊕ x
+  ;   Carry = ((a + b) • x) + (a • b)
   (cons (xorGate (xorGate a b) x) (orGate (andGate (orGate a b) x) (andGate a b)))
 )
 
@@ -66,8 +66,8 @@
 ; nBitAdder Function
 ;-----------------------
 
-; The nBitAdder function computes the sum of two binary numbers represented as lists, and returns
-; the result with the carry bit as a pair.
+; The 'nBitAdder' function adds two binary numbers represented as lists, and
+; returns the result with the carry bit as a pair.
 (define (nBitAdder val1 val2 c)
   (let ((rVal1 (reverse val1))
         (rVal2 (reverse val2)))
