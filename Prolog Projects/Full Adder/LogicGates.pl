@@ -58,6 +58,7 @@ fullAdder(A, B, Cin, Sum, Cout) :-
 % nBitAdder Function
 % -----------------------
 
+% The 'nBitAdder' function adds two binary numbers represented as lists.
 rmvLast(List, NewList) :-
   reverse(List, [_|T]),
   reverse(T, NewList).
