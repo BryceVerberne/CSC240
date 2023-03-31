@@ -9,30 +9,45 @@
 % Logic Gate Predicates
 % -----------------------
 
-% This predicate represents the logical AND gate.
-% It returns true if both input arguments add up to 2.
-andGate(A, B) :-
-  A + B =:= 2.
+% The 'andGate(<A>, <B>, <Y>)' predicate represents the logical AND gate for two binary bits.
+andGate(0, 0, 0).
+andGate(0, 1, 0).
+andGate(1, 0, 0).
+andGate(1, 1, 1).
 
-% This predicate represents the logical OR gate.
-% It returns true if both input arguments do not add up to 0.
-orGate(A, B) :-
-  A + B =\= 0.
+% The 'orGate(<A>, <B>, <Y>)' predicate represents the logical OR gate for two binary bits.
+orGate(0, 0, 0).
+orGate(0, 1, 1).
+orGate(1, 0, 1).
+orGate(1, 1, 1).
 
-% This predicate represents the logical NOT gate.
-% It returns true if the argument is 0 & false if 1.
-notGate(A) :-
-  A =:= 0.
+% The 'notGate(<A>, <Y>)' predicate represents the logical NOT gate for one binary bit.
+notGate(0, 1).
+notGate(1, 0).
 
-% This predicate represents the logical XOR gate.
-% It returns true if the two input arguments are not equal to each other.
-xorGate(A, B) :-
-  A =\= B.
-  
+% The 'xorGate(<A>, <B>, <Y>)' predicate represents the logical XOR gate for two binary bits.
+xorGate(0, 0, 0).
+xorGate(0, 1, 1).
+xorGate(1, 0, 1).
+xorGate(1, 1, 0).
+
 
 % -----------------------
 % FullAdder Predicate
 % -----------------------
+
+% This function simulates a full adder. It takes two binary digits & a carry-in bit as input, 
+% & produces the corresponding sum & carry-out bits.
+fullAdder(A, B, Cin, Sum, Cout) :-
+  % Sum = (A ⊕ B) ⊕ Cin
+  xorGate(A, B, C),
+  xorGate(C, Cin, Sum),
+
+  % Cout = ((A + B) • Cin) + (A • B)
+  orGate(A, B, D),
+  andGate(D, Cin, E),
+  andGate(A, B, F),
+  orGate(E, F, Cout).
 
 
 % -----------------------
