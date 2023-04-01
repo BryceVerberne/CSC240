@@ -41,7 +41,7 @@ xorGate(1, 1, 0).
 % -----------------------
 
 % This function simulates a full adder. It takes two binary digits & a 
-% carry-in bit as input, & produces the corresponding sum & carry-out bits.
+% carry-in bit as input, & then produces the corresponding sum & carry-out bits.
 fullAdder(A, B, Cin, Sum, Cout) :-
   % Sum = (A ⊕ B) ⊕ Cin
   xorGate(A, B, C),
@@ -58,76 +58,109 @@ fullAdder(A, B, Cin, Sum, Cout) :-
 % nBitAdder Function
 % -----------------------
 
-% The 'nBitAdder' function adds two binary numbers represented as lists.
+% The nBitAdder function builds upon the FullAdder by allowing the user to add two
+% binary numbers of n length. 
+last(X, [X]).
+
+last(X, [ _ | Tail]) :- 
+  last(X, Tail).
+
 rmvLast(List, NewList) :-
-  reverse(List, [_|T]),
-  reverse(T, NewList).
+  append(NewList, [_], List).
 
-nBitAdder(A, B, Cin, Sum, Cout) :-
-  length(A, Length),
-  Length = 0.
+adder([], [], Cin, [], Cin).
 
-nBitAdder(A, B, Cin, Sum, Cout) :-
-  length(A, LengthA),
+adder(A, B, Cin, Sum, Cout) :-
 
-  nth1(LengthA, A, ValA),
-  nth1(LengthA, B, ValB),
+  last(ValA, A),
+  last(ValB, B),
 
   fullAdder(ValA, ValB, Cin, S, C),
 
-  write(A), nl,
-  write(B), nl,
-
-  rmvLast(A, NewA), 
+  rmvLast(A, NewA),
   rmvLast(B, NewB),
 
-  write(NewA),
-  write(ValA), nl,
-  write(NewB),
-  write(ValB), nl,
+  adder(NewA, NewB, C, NewSum, Cout),
+  Sum = [S | NewSum].
 
-  write('This is the sum: '),
-  write(S), nl,
+nBitAdder(A, B, Cin, ReversedSum, Cout) :-
+  adder(A, B, Cin, Sum, Cout),
+  reverse(Sum, ReversedSum).
 
-  nBitAdder(NewA, NewB, C, S, Cout).
-  
 
 % -----------------------
 % Test Cases  
 % -----------------------
 
 % Testing Logic Gate Methods
-% andGate(0 0).
-% andGate(0 1).
-% andGate(1, 0). 
-% andGate(1, 1).
+andGateTest :-
+  write('A  B  Y'), nl,
+  andOut(0,0),
+  andOut(0,1),
+  andOut(1,0),
+  andOut(1,1).
 
-% orGate(0, 0).
-% orGate(0, 1).
-% orGate(1, 0).
-% orGate(1, 1).
+orGateTest :-
+  write('A  B  Y'), nl,
+  orOut(0,0),
+  orOut(0,1),
+  orOut(1,0),
+  orOut(1,1).
 
-% notGate(0).
-% notGate(1).
+notGateTest :-
+  write('A  Y'), nl,
+  notOut(0),
+  notOut(1).
 
-% xorGate(0, 0).
-% xorGate(0, 1).
-% xorGate(1, 0).
-% xorGate(1, 1).
+xorGateTest :-
+  write('A  B  Y'), nl,
+  xorOut(0, 0),
+  xorOut(0, 1),
+  xorOut(1, 0),
+  xorOut(1, 1).
 
 
-% Testing Fulladder Methods
-% fullAdder(0, 0, 0).
-% fullAdder(0, 0, 1).
-% fullAdder(0, 1, 0).
-% fullAdder(0, 1, 1).
-% fullAdder(1, 0, 0).
-% fullAdder(1, 0, 1).
-% fullAdder(1, 1, 0).
-% fullAdder(1, 1, 1).
+% Testing Fulladder Methods  
+fullAdderTest :-
+  write('A  B  Cin  Cout  Sum'), nl,
+  fullAdderOut(0,0,0),
+  fullAdderOut(0,0,1),
+  fullAdderOut(0,1,0),
+  fullAdderOut(0,1,1),
+  fullAdderOut(1,0,0),
+  fullAdderOut(1,0,1),
+  fullAdderOut(1,1,0),
+  fullAdderOut(1,1,1).
 
 
 % Testing n bit adder Methods
-% nBitAdder([0,1,0], [0,1,1], 1).
-% nBitAdder([1,1,1], [0,0,0], 1).
-% nBitAdder([1,1,0,0,1,0,1,0,1], [1,0,1,1,0,0,0,1,1], 0).
+nBitAdderTest :-
+  nBitAdderOut([0,1,0], [0,1,1], 1), nl,
+  nBitAdderOut([1,1,1], [0,0,0], 1), nl,
+  nBitAdderOut([1,1,0,0,1,0,1,0,1], [1,0,1,1,0,0,0,1,1], 0).
+
+
+% Below are my functions that print to console.
+andOut(A, B) :-
+  andGate(A, B, Y),
+  format('~w  ~w  ~w~n', [A, B, Y]).
+
+orOut(A, B) :-
+  orGate(A, B, Y),
+  format('~w  ~w  ~w~n', [A, B, Y]).
+
+notOut(A) :-
+  notGate(A, Y),
+  format('~w  ~w~n', [A, Y]).
+
+xorOut(A, B) :-
+  xorGate(A, B, Y),
+  format('~w  ~w  ~w~n', [A, B, Y]).
+
+fullAdderOut(A, B, C) :-
+  fullAdder(A, B, C, Sum, Carry),
+  format('~w  ~w   ~w    ~w     ~w~n', [A, B, C, Carry, Sum]).
+
+nBitAdderOut(A, B, C) :-
+  nBitAdder(A, B, C, Sum, Carry),
+  format('A:   ~w  Cout: ~w~nB:   ~w  Sum:  ~w~nCin: ~w~n', [A,Carry,B,Sum,C]).
