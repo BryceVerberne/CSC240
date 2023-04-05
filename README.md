@@ -13,7 +13,7 @@ This repository contains the following types of programs:
 - **Scheme Programs**: Functional programming examples written in Scheme.
 - **Prolog Programs**: Logic programming examples and exercises written in Prolog.
 - **C Programs**: Procedural programming examples and assignments written in C.
-- **C++ Programs**: (Coming soon) Object-oriented programming examples and projects written in C++.
+- **C++ Programs**: Object-oriented programming examples and projects written in C++.
 
 ## Getting Started
 
