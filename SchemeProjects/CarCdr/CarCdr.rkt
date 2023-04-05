@@ -1,4 +1,4 @@
-; Title:  Fun With Car & Cdr
+; Title:  Car & Cdr
 ; Desc:   In this program, I am writing expressions to extract items in a list.
 ; Author: Bryce Verberne
 ; Date:   02/27/2023
