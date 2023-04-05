@@ -1,6 +1,13 @@
+; Title:  Wind Chill
+; Desc:   In this program, I am writing the classic Wind Chill formula.
+; Author: Bryce Verberne
+; Date:   03/05/2023
+
+
+
 #lang racket
 
-; Let's write the classic WindChill Formula...
+; Write the classic WindChill Formula...
 ; Write a function that implments
 ;      Term1  (  Term2 )(        Term3      )    Term4
 ; WC = 91.4 - (91.4 - T)(.478 + .301(V)^(1/2) - .02V)

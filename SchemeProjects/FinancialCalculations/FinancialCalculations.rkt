@@ -1,4 +1,4 @@
-; Title: Scheme Financials Calculations
+; Title: Financial Calculations
 ; Desc: In this program, I am writing Scheme functions to solve given problems. 
 ; Author: Bryce Verberne
 ; Date: 02/15/2023

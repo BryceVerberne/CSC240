@@ -1,4 +1,4 @@
-; Title:  Scheme Functions w/ Decisions
+; Title:  Decisions
 ; Desc:   In this program, I am writing Scheme functions with conditional statements. 
 ; Author: Bryce Verberne
 ; Date:   03/11/2023
