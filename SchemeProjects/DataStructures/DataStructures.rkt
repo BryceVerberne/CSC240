@@ -1,13 +1,14 @@
-; Title:  Data Structures
-; Desc:   This program demonstrates how to manipulate pairs & lists 
+; Title:  Data Structure Manipulation
+; Desc:   This program demonstrates how to manipulate pairs & lists
 ; Author: Bryce Verberne
-; Date:   03/22/2023
+; Date:   02/27/2023
 
 
 
 #lang racket
 
 ; Let's create a pair
+
 (cons 2 4)  ; Let's create an ordered pair of (2,4)
 
 (cons 'rectangle (cons 10 20))
@@ -164,5 +165,26 @@ IQs
 
 (sumup speeds)
 
+(list-ref '(1 2 3 4 5 6) 4)
 
-  
+; Let's write our own Max Function.
+(max 3 2 8 4 9 7)
+
+(define (maximum2 max lst)
+  (cond
+    ((null? lst)
+     max)
+    ((> (car lst) max)
+     (maximum2 (car lst) (cdr lst)))
+    (else
+     (maximum2 max (cdr lst)))
+  )
+)
+
+; This handles the empty list correctly; otherwise, things blow up.
+(define (maximum lst)
+  (if (null? lst)   ; If it's null, then we don't want to do anything.
+      0
+      (maximum2 (car lst) (cdr lst))
+  )
+)
