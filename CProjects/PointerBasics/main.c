@@ -51,5 +51,32 @@ int main() {
     // Print *p (the value that 'b' holds).
     printf("New value at 'p' is: %d\n", *p);
 
+
+    // -------------------
+    // Pointer Arithemtic
+    // -------------------
+    printf("\nPointer Arithmetic");
+
+    // Reset our 'p' value
+    a = 10;
+    p = &a;
+
+    printf("\nAddress of 'p' is: %d\n", p);
+
+    // Print the size of an integer datatype
+    printf("Size of an integer is %d bytes.\n", sizeof(int));
+
+    // Add one to 'p'.
+    // The address increments by 4 bytes, since this is the size of one word (four bytes or one integer variable).
+    printf("Adding 1 to 'p' gives us %d\n", (p+1));
+
+    // Increment 'p' by 2
+    // The address will increment by 8 bytes.
+    printf("Adding 2 to 'p' gives us %d\n", (p+2));
+
+    // Let's find the value at address p+1 (use a * before our pointer)
+    // We get a random value since we have no value allocated to this memory address.
+    printf("Value at address 'p'+1 is %d\n", *(p+1));
+
     return 0;
 }
