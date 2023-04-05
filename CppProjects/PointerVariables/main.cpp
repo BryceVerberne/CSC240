@@ -7,7 +7,7 @@
 
 
 
-// Description:
+// Program Description:
 //  - This program demonstrates the use of pointer variables.
 //  - It finds the area of a rectangle given length and width.
 //  - It prints the length and width in ascending order.
@@ -31,22 +31,26 @@ int main()
     cout << "Please input the width of the rectangle" << endl;
     cin >> width;
 
-    // Fill in code to make lengthPtr point to length (hold its address)
+    // Assign 'lengthPtr' to 'length' (hold its address)
+    lengthPtr = &length;
 
-    // Fill in code to make widthPtr point to width (hold its address)
+    // Assign 'widthPtr' to 'width' (hold its address)
+    widthPtr = &width;
 
-    area =	// Fill in code to find the area by using only the pointer variables
+    // Get area using our pointers & print to console
+    area = *lengthPtr * *widthPtr;
+    cout << "The area is " << area << endl;
 
-            cout << "The area is " << area << endl;
-
-    if (// Fill in the condition length > width by using only the pointer variables)
+    // Use pointers to check if length is greater than, less than, or the same as width.
+    if (*lengthPtr > *widthPtr) {
         cout << "The length is greater than the width" << endl;
-
-            else if (// Fill in the condition of width > length by using only the pointer variables)
+    }
+    else if (*lengthPtr < *widthPtr) {
         cout << "The width is greater than the length" << endl;
-
-            else
-    cout << "The width and length are the same" << endl;
+    }
+    else {
+        cout << "The width and length are the same" << endl;
+    }
 
     return 0;
 }
