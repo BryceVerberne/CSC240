@@ -1,3 +1,12 @@
+/*
+*  Title:  Pointer Basics
+*  Desc:   This program teaches the basics of using pointers in C.
+*  Author: Bryce Verberne
+*  Date:   04/05/2023
+*/
+
+
+
 #include <stdio.h>
 
 int main() {
@@ -5,7 +14,7 @@ int main() {
     // -------------------
     // Pointer Assignments
     // -------------------
-    printf("Pointer Assignments:\n");
+    printf("Pointer Assignments\n");
 
     int a = 10;
     int *p = &a;  // This is our pointer. Notice how there is a '*' before the variable name.
