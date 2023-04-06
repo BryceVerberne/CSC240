@@ -25,16 +25,10 @@ struct taxPayer
 int main()
 {
     // Initialize & assign data to a structure variable named citizen1
-    taxPayer citizen1;
-    citizen1.name = "Tim McGuiness";
-    citizen1.socialSecNum = 255871234;
-    citizen1.taxRate = 0.35;
+    taxPayer citizen1 = {"Tim McGuiness", 255871234, 0.35};
 
     // Initialize & assign data to a structure variable named citizen2
-    taxPayer citizen2;
-    citizen2.name = "John Kane";
-    citizen2.socialSecNum = 278990582;
-    citizen2.taxRate = 0.29;
+    taxPayer citizen2 = {"John Kane", 278990582, 0.29};
 
     cout << fixed << showpoint << setprecision(2);
 
