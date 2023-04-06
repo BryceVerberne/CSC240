@@ -38,29 +38,32 @@ int main()
          << "Blanks at the end do not count." << endl;
 
     for (pos = 0; pos < MAXNAME; pos++)
-        cin >> // Fill in code to read a character into the name array
+        cin >> *(name + pos);// Fill in code to read a character into the name array
             // WITHOUT USING a bracketed subscript
 
             cout << "Hi ";
 
     for (pos = 0; pos < MAXNAME; pos++)
-        cout << // Fill in code to a print a character from the name array
+        cout << *(name + pos);// Fill in code to a print a character from the name array
              // WITHOUT USING a bracketed subscript
 
              cout << endl << "Enter three integer numbers separated by blanks" << endl;
 
-    // Fill in code to input three numbers and store them in the
+    // Input three numbers and store them in the
     // dynamic variables pointed to by pointers one, two, and three.
-    // You are working only with pointer variables
+    cout << "Input three integer values:" << endl;
+    cin >> *one >> *two >> *three;
 
     // echo print
-    cout << "The three numbers are " << endl;
+    cout << "The three numbers are ";
 
-    // Fill in code to output those numbers
+    // Output those numbers
+    cout << *one << ", " << *two << ", and " << *three << "." << endl;
 
-    result = // Fill in code to calculate the sum of the three numbers
+    // Calculate the sum of the three numbers
+    result = *one + *two + *three;
 
-            cout << "The sum of the three values is " << result << endl;
+    cout << "The sum of the three values is " << result << endl;
 
     // Deallocate one, two, three and name
     delete one;
