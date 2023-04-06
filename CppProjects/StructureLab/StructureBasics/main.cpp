@@ -12,16 +12,11 @@
 using namespace std;
 
 // The 'rectangle' structure holds data about a rectangle.
-// It has the following members:
-//  - length (float)
-//  - width (float)
-//  - area (float)
-//  - perimeter (float)
 struct rectangle {
-    float length;    // Stores the length of the rectangle
-    float width;     // Stores the width of the rectangle
-    float area;      // Stores the area of the rectangle (length * width)
-    float perimeter; // Stores the perimeter of the rectangle ((2 * length) + (2 * width))
+    float length;    // Length of the rectangle
+    float width;     // Width of the rectangle
+    float area;      // Area of the rectangle (length * width)
+    float perimeter; // Perimeter of the rectangle ((2 * length) + (2 * width))
 };
 
 int main()
