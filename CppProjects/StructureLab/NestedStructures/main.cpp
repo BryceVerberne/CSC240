@@ -11,39 +11,54 @@
 #include <iomanip>
 using namespace std;
 
-// Fill in code to declare a structure named dimensions that
-// contains 2 float members, length and width
+// The 'dimensions' structure holds the dimensions of a rectangle
+struct dimensions {
+    float length;        // Length of the rectangle
+    float width;         // Width of the rectangle
+};
 
-// Fill in code to declare a structure named rectangle that contains
-// 3 members, area, perimeter, and sizes. area and perimeter should be
-// floats, whereas sizes should be a dimensions structure variable
+// The 'results' structure holds calculation results of a rectangle
+struct results {
+    float area;          // Area of the rectangle (length * width)
+    float perimeter;     // Perimeter of the rectangle ((2 * length) + (2 * width))
+};
+
+// The 'rectangle' structure holds data about a rectangle.
+struct rectangle {
+    dimensions sizes;    // A nested structure that holds the rectangle's dimensions
+    results attributes;  // A nested structure that holds the rectangle's results from calculations
+};
 
 int main()
 {
-    // Fill in code to define a rectangle structure variable named box.
+    // Define a rectangle structure variable named box.
+    rectangle box;
 
+    // Prompt the user to provide a length for the rectangle
     cout << "Enter the length of a rectangle: ";
 
-    // Fill in code to read in the length to the appropriate location
+    // Read & store the rectangle's length
+    cin >> box.sizes.length;
 
+    // Prompt the user to provide a width of the rectangle
     cout << "Enter the width of a rectangle: ";
 
-    // Fill in code to read in the width to the appropriate location
+    // Read & store the rectangle's width
+    cin >> box.sizes.width;
 
-    cout << endl << endl;
+    cout << endl;
 
-    // Fill in code to compute the area and store it in the appropriate
-    // location
+    // Computer & store the area
+    box.attributes.area = box.sizes.length * box.sizes.width;
 
-    // Fill in code to compute the perimeter and store it in the
-    // appropriate location
+    // Compute & store the perimeter
+    box.attributes.perimeter = (2 * box.sizes.width) + (2 * box.sizes.length);
 
     cout << fixed << showpoint << setprecision(2);
 
-    cout << "The area of the rectangle is " << box.attributes.area << endl;
-
-    cout << "The perimeter of the rectangle is " << box.attributes.perimeter
-         << endl;
+    // Print the area & perimeter to console
+    cout << "The area of the rectangle is " << box.attributes.area << "." << endl;
+    cout << "The perimeter of the rectangle is " << box.attributes.perimeter << "." << endl;
 
     return 0;
 }
