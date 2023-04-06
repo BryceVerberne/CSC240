@@ -12,53 +12,58 @@
 #include <iomanip>
 using namespace std;
 
+// The taxPayer structure holds data about an individual's tax-related information.
 struct taxPayer
 {
-    string name;
-    long socialSecNum;
-    float taxRate;
-    float income;
-    float taxes;
+    string name;       // Taxpayer's name
+    long socialSecNum; // Taxpayer's SSN
+    float taxRate;     // Tax rate for the taxpayer's income
+    float income;      // Taxpayer's total income
+    float taxes;       // Calculated taxes owed (taxRate * income)
 };
 
 int main()
 {
-    // Fill in code to initialize a structure variable named citizen1 so that
-    // the first three members are initialized.	Assume the name is Tim
-    // McGuiness, the social security number is 255871234, and the tax rate is .35
+    // Initialize & assign data to a structure variable named citizen1
+    taxPayer citizen1;
+    citizen1.name = "Tim McGuiness";
+    citizen1.socialSecNum = 255871234;
+    citizen1.taxRate = 0.35;
 
-    // Fill in code to initialize a structure variable named citizen2 so that
-    // the first three members are initialized.	Assume the name is John Kane,
-    // the social security number is 278990582, and the tax rate is .29
+    // Initialize & assign data to a structure variable named citizen2
+    taxPayer citizen2;
+    citizen2.name = "John Kane";
+    citizen2.socialSecNum = 278990582;
+    citizen2.taxRate = 0.29;
 
     cout << fixed << showpoint << setprecision(2);
 
-    // calculate taxes due for citizen1
+    // Prompt the user to enter this year's income for the citizen1
+    cout << "Enter " << citizen1.name << "'s income for this year: ";
 
-    // Fill in code to prompt the user to enter this year's income for the citizen1
+    // Read in this income to the appropriate structure member
+    cin >> citizen1.income;
 
-    // Fill in code to read in this income to the appropriate structure member
+    // Calculate the taxes due for citizen1
+    citizen1.taxes = citizen1.taxRate * citizen1.income;
 
-    // Fill in code to determine this year's taxes for citizen1
-
+    // Output this year's taxes for citizen1 to console
     cout << "Name: " << citizen1.name << endl;
-
     cout << "Social Security Number: " << citizen1.socialSecNum << endl;
-
     cout << "Taxes due for this year: $" << citizen1.taxes << endl << endl;
 
-    // calculate taxes due for citizen2
+    // Prompt the user to enter this year's income for citizen2
+    cout << "Enter " << citizen2.name << "'s income for this year: ";
 
-    // Fill in code to prompt the user to enter this year's income for citizen2
+    // Read in this income to the appropriate structure member
+    cin >> citizen2.income;
 
-    // Fill in code to read in this income to the appropriate structure member
+    // Calculate taxes due for citizen2
+    citizen2.taxes = citizen2.taxRate * citizen2.income;
 
-    // Fill in code to determine this year's taxes for citizen2
-
+    // Output this year's taxes for citizen2 to console
     cout << "Name: " << citizen2.name << endl;
-
     cout << "Social Security Number: " << citizen2.socialSecNum << endl;
-
     cout << "Taxes due for this year: $" << citizen2.taxes << endl << endl;
 
     return 0;
