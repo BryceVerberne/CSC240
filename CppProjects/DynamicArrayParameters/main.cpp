@@ -133,7 +133,7 @@ void sortArray(int* scoreArray, int size) {
 }
 
 
-// indexOf Function Description
+// indexOf Function Description:
 //  - Searches an array for a user-defined value & prints if or if not it is present.
 //  - Two parameters:
 //     1. Integer Pointer (points to array of integers)
