@@ -11,32 +11,51 @@
 #include <iomanip>
 using namespace std;
 
-// Fill in code to declare a structure named rectangle which has
-// members length, width, area, and perimeter all of which are floats
+// The 'rectangle' structure holds data about a rectangle.
+// It has the following members:
+//  - length (float)
+//  - width (float)
+//  - area (float)
+//  - perimeter (float)
+struct rectangle {
+    float length;    // Stores the length of the rectangle
+    float width;     // Stores the width of the rectangle
+    float area;      // Stores the area of the rectangle (length * width)
+    float perimeter; // Stores the perimeter of the rectangle ((2 * length) + (2 * width))
+};
 
 int main()
 {
-    // Fill in code to define a rectangle variable named box
+    // Define a rectangle variable named box
+    rectangle box;
 
+    // Prompt the user to input the rectangle's length
     cout << "Enter the length of a rectangle: ";
 
-    // Fill in code to read in the length member of box
+    // Read in the length member of box
+    cin >> box.length;
 
+    // Prompt the user to input the rectangle's width
     cout << "Enter the width of a rectangle: ";
 
-    // Fill in code to read in the width member of box
+    // Read in the width member of box
+    cin >> box.width;
 
-    cout << endl << endl;
+    cout << endl;
 
-    // Fill in code to compute the area member of box
+    // Compute the area member of box
+    box.area = box.length * box.width;
 
-    // Fill in code to compute the perimeter member of box
+    // Compute the perimeter member of box
+    box.perimeter = (2 * box.length) + (2 * box.width);
 
     cout << fixed << showpoint << setprecision(2);
 
-    // Fill in code to output the area with an appropriate message
+    // Output the area
+    cout << "Rectangle Area: " << box.area << endl;
 
-    // Fill in code to output the perimeter with an appropriate message
+    // Output the perimeter
+    cout << "Rectangle Perimeter: " << box.perimeter << endl;
 
     return 0;
 }
