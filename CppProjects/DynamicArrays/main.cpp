@@ -13,51 +13,51 @@ using namespace std;
 
 int main()
 {
-    float *monthSales = nullptr;	// a pointer used to point to an array
-    // holding monthly sales
+    float *monthSales = nullptr;  // Pointer used to point to an array
+                                  // holding monthly sales
 
-    float total = 0;	// total of all sales
-    float average;		// average of monthly sales
-    int numOfSales;		// number of sales to be processed
-    int count;			// loop counter
+    float total = 0;	// Total of all sales
+    float average;		// Average of monthly sales
+    int numOfSales;		// Number of sales to be processed
+    int count;			// Loop counter
 
     cout << fixed << showpoint << setprecision(2);
 
     cout << "How many monthly sales will be processed? ";
     cin >> numOfSales;
 
-    // Fill in the code to allocate memory for the array pointed to by
-    // monthSales.
+    // Allocate memory for the array pointed to by monthSales.
+    monthSales = new float[numOfSales];
 
-    if ( // Fill in the condition to determine if memory has been
-        // allocated (or eliminate this if construct if your instructor
-        // tells you it is not needed for your compiler) )
-                    {
-                            cout << "Error allocating memory!\n";
-                    return 1;
-                    }
-
-        cout << "Enter the sales below\n";
-
-    for (count = 0; count < numOfSales; count++)
-    {
-        cout << "Sales for Month number	"
-             << // Fill in code to show the number of the month
-             << ":";
-
-        // Fill in code to bring sales into an element of the array
+    // Determine if memory has been allocated
+    if (monthSales == nullptr) {
+        cout << "Error allocating memory!\n";
+        return 1;
     }
 
-    for (count = 0; count < numOfSales; count++)
-    {
-        total = total + monthSales[count];
+    cout << "Enter the sales below.\n";
+
+    for (count = 0; count < numOfSales; count++) {
+        // Show the number of the month
+        cout << "Sales for Month number	" << (count + 1) << ": ";
+
+        // Bring sales into an element of the array
+        cin >> *(monthSales + count);
     }
 
-    average = // Fill in code to find the average
+    // Calculate the total
+    for (count = 0; count < numOfSales; count++)
+    {
+        total = total + *(monthSales + count);
+    }
 
-            cout << "Average Monthly sale is $" << average << endl;
+    // Calculate the average
+    average = total / numOfSales;
 
-    // Fill in the code to deallocate memory assigned to the array.
+    cout << "Average Monthly sale is $" << average << "." << endl;
+
+    // Deallocate memory assigned to the array.
+    delete [] monthSales;
 
     return 0;
 }
