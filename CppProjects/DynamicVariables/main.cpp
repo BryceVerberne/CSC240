@@ -21,13 +21,13 @@ int main()
     int *three = nullptr;
     int result;
 
-    //	Allocate the integer variable one here
+    //	Allocate the integer variable one
     one = new int;
 
-    //	Allocate the integer variable two here
+    //	Allocate the integer variable two
     two = new int;
 
-    //	Allocate the integer variable three here
+    //	Allocate the integer variable three
     three = new int;
 
     //	Allocate the character array pointed to by name
@@ -37,24 +37,24 @@ int main()
     cout << "If your name has < 10 characters, repeat last letter. " << endl
          << "Blanks at the end do not count." << endl;
 
-    for (pos = 0; pos < MAXNAME; pos++)
-        cin >> *(name + pos);// Fill in code to read a character into the name array
-            // WITHOUT USING a bracketed subscript
+    for (pos = 0; pos < MAXNAME; pos++) {
+        cin >> *(name + pos); // Read a character into the name array
+    }
 
-            cout << "Hi ";
+    cout << "Hi ";
 
-    for (pos = 0; pos < MAXNAME; pos++)
-        cout << *(name + pos);// Fill in code to a print a character from the name array
-             // WITHOUT USING a bracketed subscript
+    for (pos = 0; pos < MAXNAME; pos++) {
+        cout << *(name + pos); // Print a character from the name array
+    }
 
-             cout << endl << "Enter three integer numbers separated by blanks" << endl;
+    cout << endl << "Enter three integer numbers separated by blanks" << endl;
 
     // Input three numbers and store them in the
     // dynamic variables pointed to by pointers one, two, and three.
     cout << "Input three integer values:" << endl;
     cin >> *one >> *two >> *three;
 
-    // echo print
+    // Echo print
     cout << "The three numbers are ";
 
     // Output those numbers
