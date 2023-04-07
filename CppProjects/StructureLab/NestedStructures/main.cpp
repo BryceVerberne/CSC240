@@ -29,6 +29,10 @@ struct rectangle {
     results attributes;  // A nested structure that holds the rectangle's results from calculations
 };
 
+// Prototypes
+float rectArea(rectangle rect);
+float rectPerimeter(rectangle rect);
+
 int main()
 {
     // Define a rectangle structure variable named box.
@@ -49,10 +53,10 @@ int main()
     cout << endl;
 
     // Computer & store the area
-    box.attributes.area = box.sizes.length * box.sizes.width;
+    box.attributes.area = rectArea(box);
 
     // Compute & store the perimeter
-    box.attributes.perimeter = (2 * box.sizes.width) + (2 * box.sizes.length);
+    box.attributes.perimeter = rectPerimeter(box);
 
     cout << fixed << showpoint << setprecision(2);
 
@@ -61,4 +65,24 @@ int main()
     cout << "The perimeter of the rectangle is " << box.attributes.perimeter << "." << endl;
 
     return 0;
+}
+
+
+// rectArea Function Description:
+//  - Finds the area of a rectangle
+//  - One parameter
+//     1. rectangle Pointer - Points to rectangle structure
+//  - Return: The value for area
+float rectArea(rectangle rect) {
+    return rect.sizes.length * rect.sizes.width;
+}
+
+
+// rectPerimeter Function Description:
+//  - Finds the perimeter of a rectangle
+//  - One parameter
+//     1. rectangle Pointer - Points to rectangle structure
+//  - Return: The value for perimeter
+float rectPerimeter(rectangle rect) {
+    return (rect.sizes.length * 2) + (rect.sizes.width * 2);
 }
