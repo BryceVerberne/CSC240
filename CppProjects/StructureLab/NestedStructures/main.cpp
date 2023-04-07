@@ -70,7 +70,7 @@ int main()
 
 // rectArea Function Description:
 //  - Finds the area of a rectangle
-//  - One parameter
+//  - One parameter:
 //     1. rectangle Pointer - Points to rectangle structure
 //  - Return: The value for area
 float rectArea(rectangle rect) {
@@ -80,7 +80,7 @@ float rectArea(rectangle rect) {
 
 // rectPerimeter Function Description:
 //  - Finds the perimeter of a rectangle
-//  - One parameter
+//  - One parameter:
 //     1. rectangle Pointer - Points to rectangle structure
 //  - Return: The value for perimeter
 float rectPerimeter(rectangle rect) {
