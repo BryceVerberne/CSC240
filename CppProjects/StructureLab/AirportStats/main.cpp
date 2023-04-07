@@ -26,6 +26,7 @@ void totalPlanes(airportInfo *travelInfo);
 
 int main() {
 
+    // Program introduction
     cout << "This program stores an airport's monthly landings & departures." << endl << endl;
 
     // Create an array of 12 structures to hold travel info for an entire year
