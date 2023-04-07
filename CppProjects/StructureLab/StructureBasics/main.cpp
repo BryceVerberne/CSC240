@@ -52,5 +52,13 @@ int main()
     // Output the perimeter
     cout << "Rectangle Perimeter: " << box.perimeter << endl;
 
+    // Print to console if or if not the rectangle is a square.
+    if (box.width == box.length) {
+        cout << "The rectangle is a square." << endl;
+    }
+    else {
+        cout << "The rectangle is not a square." << endl;
+    }
+
     return 0;
 }
