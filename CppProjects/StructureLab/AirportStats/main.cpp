@@ -26,6 +26,8 @@ void totalPlanes(airportInfo *travelInfo);
 
 int main() {
 
+    cout << "This program stores an airport's monthly landings & departures." << endl << endl;
+
     // Create an array of 12 structures to hold travel info for an entire year
     airportInfo travel[12];
 
@@ -37,7 +39,7 @@ int main() {
     // Prompt the user for input & store it in the array
     fillArray(travel, months);
 
-    cout << "\nIn Summary:" << endl;
+    cout << "In Summary:" << endl;
 
     // Find the total departures & landings that year, calculate the average, & output average to console
     average(travel);
@@ -62,7 +64,7 @@ void fillArray(airportInfo *travelInfo, string *calendar) {
     // Prompt user to enter data for each month.
     for (int i = 0; i < 12; ++i) {
         // Prompt user to input data for a particular month
-        cout << "Enter data for " << calendar[i] << endl;
+        cout << "Enter data for " << calendar[i] << "." << endl;
 
         // Prompt user for data on the number of planes that landed
         cout << "Total Planes Landed: ";
@@ -82,6 +84,8 @@ void fillArray(airportInfo *travelInfo, string *calendar) {
 
         cout << endl;
     }
+
+    cout << endl;
 }
 
 
