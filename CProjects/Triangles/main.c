@@ -1,6 +1,6 @@
 /*
 *  Title:  Triangles
-*  Desc:   This program demonstrates how to read from a file & operate on its information
+*  Desc:   This program demonstrates how to read from a file & operate on its contents.
 *  Author: Bryce Verberne
 *  Date:   04/07/2023
 */
