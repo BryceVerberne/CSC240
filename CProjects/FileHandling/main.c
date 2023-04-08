@@ -83,6 +83,8 @@ int main() {
     // Writing to a File
     // -----------------
     // IMPORTANT: Whenever we open a file that already exists in write mode, all of its current contents will be erased.
+    //            To avoid this, we can use the append & update mode when writing. The function looks like this:
+    //            'fopen(<"fileName.txt">, "a+");
 
     printf("\n\n-----------------\n");
     printf("Writing to a File\n");
