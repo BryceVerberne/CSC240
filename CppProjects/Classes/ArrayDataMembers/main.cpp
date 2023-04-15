@@ -34,7 +34,7 @@ public:
     ~FloatList();
 
     // getList: Reads floating point numbers from a file & stores them in the FloatList object
-    void getList(ifstream& inFile);
+    void setList(ifstream& inFile);
 
     // printList: Prints the floating point numbers stored in the FloatList object to the console
     void printList() const;
@@ -66,7 +66,7 @@ int main() {
     }
 
     // Read numbers from the file & store them in 'list'
-    list.getList(tempData);
+    list.setList(tempData);
 
     // Print the numbers stored in 'list' to console
     list.printList();
@@ -79,7 +79,6 @@ int main() {
 
     return 0;
 }
-
 
 
 // __________________________________________________________________
@@ -104,7 +103,7 @@ FloatList::~FloatList() = default;
 // Desc:   Reads floating point numbers from a file & stores them in the FloatList object
 // Input:  ifstream reference representing the file to read from
 // Output: None
-void FloatList::getList(ifstream& file) {
+void FloatList::setList(ifstream& file) {
     while (file >> values[length]) {
         ++length;
     }
