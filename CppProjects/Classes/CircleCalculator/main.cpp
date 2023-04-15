@@ -21,78 +21,134 @@ using namespace std;
 // Circles class declaration
 class Circles
 {
-public:
+public: // Constructors & Member Functions
 
+    // Default constructor
+    //   Desc: Initializes a circle object with default radius of 1 and center (0, 0)
     Circles();
 
+    // Parameterized constructor
+    //   Desc: Initializes a circle object with specified radius and center coordinates
+    //   Input: float radius, int x-coordinate, int y-coordinate
     Circles(float r, int x, int y);
 
+    // Destructor
+    //   Desc: Cleans up resources when the circle object is destroyed
     ~Circles();
 
+    // setCenter: Sets the center coordinates of the circle object
+    //   Input: int x-coordinate, int y-coordinate
+    //   Output: None
     void setCenter(int x, int y);
-    double findArea();
-    double findCircumference();
-    void printCircleStats();	// This outputs the radius and center of the circle.
-    Circles(float r);			// Constructor
 
-private:
-    float radius;
-    int	center_x;
-    int	center_y;
+    // findArea: Calculates the area of the circle object
+    //   Input: None
+    //   Output: double value representing the area of the circle
+    double findArea();
+
+    // findCircumference: Calculates the circumference of the circle object
+    //   Input: None
+    //   Output: double value representing the circumference of the circle
+    double findCircumference();
+
+    // printCircleStats: Prints the radius and center coordinates of the circle object
+    //   Input: None
+    //   Output: Displays the radius and center coordinates on the console
+    void printCircleStats();
+
+private: // Data Members
+    float radius; // Radius of the circle
+    int center_x; // X-coordinate of the circle's center
+    int center_y; // Y-coordinate of the circle's center
 };
+
+const double PI = 3.14;
+
+#include <iostream>
+using namespace std;
+
+// Add Circles class declaration and other necessary code here...
 
 const double PI = 3.14;
 
 int main()
 {
-    Circles sphere(8, 9, 10);
-    sphere.printCircleStats();
+    Circles sphere(8, 9, 10); // sphere is defined as an object of the Circles class
 
+    sphere.printCircleStats(); // Print the radius and center coordinates of the sphere
+
+    // Use the 'findArea()' member function to print the sphere's area to console
     cout << "The area of the circle is " << sphere.findArea() << endl;
+
+    // Use the 'findCircumference()' member function to print the sphere's circumference to console
     cout << "The circumference of the circle is " << sphere.findCircumference() << endl;
 
     return 0;
 }
+
 
 // __________________________________________________________________
 //
 // Implementation section
 //
 
+// Default constructor
+//   Desc: Initializes a circle object with default radius of 1 and center (0, 0)
 Circles::Circles() {
     radius = 1;
     setCenter(0, 0);
 }
 
+// Parameterized constructor
+//   Desc:  Initializes a circle object with specified radius and center coordinates
+//   Input: float radius, int x-coordinate, int y-coordinate
 Circles::Circles(float r, int x, int y) {
     radius = r;
     setCenter(x, y);
 }
 
+// Destructor
+//   Desc: Cleans up resources when the circle object is destroyed
 Circles::~Circles() {}
 
-// Fill in the code to implement the findArea member function
+// -----------
+//  setCenter
+// -----------
+// Desc:   Sets the center coordinates of the circle object
+// Input:  int x-coordinate, int y-coordinate
+// Output: None
+void Circles::setCenter(int x, int y) {
+    center_x = x;
+    center_y = y;
+}
+
+// ----------
+//  findArea
+// ----------
+// Desc:   Calculates the area of the circle object
+// Input:  None
+// Output: double value representing the area of the circle
 double Circles::findArea() {
     return PI * (radius * radius);
 }
 
-// Fill in the code to implement the findCircumference member function
+// -------------------
+//  findCircumference
+// -------------------
+// Desc:   Calculates the circumference of the circle object
+// Input:  None
+// Output: double value representing the circumference of the circle
 double Circles::findCircumference() {
     return 2 * PI * radius;
 }
 
-void Circles::printCircleStats()
-// This procedure prints out the radius and center coordinates of the circle
-// object that calls it.
-{
+// ------------------
+//  printCircleStats
+// ------------------
+// Desc:   Prints the radius and center coordinates of the circle object
+// Input:  None
+// Output: Displays the radius and center coordinates on the console
+void Circles::printCircleStats() {
     cout << "The radius of the circle is " << radius << endl;
     cout << "The center of the circle is (" << center_x << ", " << center_y << ")" << endl;
-}
-
-void Circles::setCenter(int x, int y)
-// This procedure will take the coordinates of the center of the circle from
-// the user and place them in the appropriate member data.
-{
-    center_x = x;
-    center_y = y;
 }
