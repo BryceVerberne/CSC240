@@ -25,33 +25,29 @@ const int MAX_LENGTH = 50; // MAX_LENGTH contains the maximum length of the list
 
 // FloatList class declaration
 class FloatList {
-public:  // Constructors & Member Functions
+public:
 
-    // Default constructor
-    //   Desc: Initializes an empty FloatList object with length set to 0
+    // Default constructor: Initializes an empty FloatList object with length set to 0
     FloatList();
 
-    // Destructor
-    //   Desc: Cleans up resources when the FloatList object is destroyed
+    // Destructor: Cleans up resources when the FloatList object is destroyed
     ~FloatList();
 
-    // getList: Reads floating point numbers from a file and stores them in the FloatList object
-    //   Input:  ifstream reference representing the file to read from
-    //   Output: None
+    // getList: Reads floating point numbers from a file & stores them in the FloatList object
     void getList(ifstream& inFile);
 
     // printList: Prints the floating point numbers stored in the FloatList object to the console
-    //   Input:  None
-    //   Output: Displays the floating point numbers on the console
     void printList() const;
 
-private:  // Data Members
+    // findAverage: Calculates the average of the floating point numbers stored in the FloatList object
+    float findAverage() const;
+
+private:
     int length;                // Holds the number of elements in the array
-    float values[MAX_LENGTH];  // The array of floating point numbers
+    float values[MAX_LENGTH]{};  // The array of floating point numbers
 };
 
-int main()
-{
+int main() {
     ifstream tempData;  // Defines a data file for reading temperature values
 
     // Creates an object called list of the FloatList class
@@ -64,12 +60,19 @@ int main()
     tempData.open("temperatures.txt");
 
     // Check if the file has been opened successfully
-    if (tempData.is_open()) {
-        cout << "File Opened Successfully" << endl;
+    if (!tempData.is_open()) {
+        cout << "ERROR: Failed to Open File" << endl;
+        return 1;
     }
-    else {
-        cout << "Failed to Open File" << endl;
-    }
+
+    // Read numbers from the file & store them in 'list'
+    list.getList(tempData);
+
+    // Print the numbers stored in 'list' to console
+    list.printList();
+
+    // Calculate & print the average to console
+    cout << "The average temperature is " << list.findAverage() << endl;
 
     // Closes the file
     tempData.close();
@@ -78,20 +81,62 @@ int main()
 }
 
 
+
 // __________________________________________________________________
 //
-// Implementation section
+// Implementation Section
 //
 
+// Default Constructor
+// -------------------
+// Desc: Initializes an empty FloatList object with length set to 0
 FloatList::FloatList() {
-	// Fill in the code to complete this constructor that
-	// sets the private data member length to 0
+    length = 0;
 }
 
-// Fill in the entire code for the getList function
-// The getList function reads the data values from a data file
-// into the values array of the class FloatList
+// Destructor
+// ----------
+// Desc: Cleans up resources when the FloatList object is destroyed
+FloatList::~FloatList() = default;
 
-// Fill in the entire code for the printList function
-// The printList function prints to the screen the data in
-// the values array of the class FloatList
+// getList
+// -------
+// Desc:   Reads floating point numbers from a file & stores them in the FloatList object
+// Input:  ifstream reference representing the file to read from
+// Output: None
+void FloatList::getList(ifstream& file) {
+    while (file >> values[length]) {
+        ++length;
+    }
+}
+
+// printList
+// ---------
+// Desc:   Prints the floating point numbers stored in the FloatList object to the console
+// Input:  None
+// Output: Displays the floating point numbers on the console
+void FloatList::printList() const {
+    int count = 0;
+
+    while (count < length) {
+        cout << values[count] << endl;
+        ++count;
+    }
+}
+
+// findAverage
+// -----------
+// Desc:   Calculates the average of the floating point numbers stored in the FloatList object
+// Input:  None
+// Output: float value representing the average of the floating point numbers
+float FloatList::findAverage() const {
+    int count = 0;
+    float total = 0;
+
+    while (count < length) {
+        total += values[count];
+        ++count;
+    }
+
+    return (total / length);
+}
