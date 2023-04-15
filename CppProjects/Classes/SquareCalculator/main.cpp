@@ -14,33 +14,23 @@ using namespace std;
 class Square {
 public: // Constructors & Member Functions
 
-    // Default constructor
-    //   Desc: Initializes a square object with default side length of 1
+    // Default constructor: Initializes a square object with default side length of 1
     Square();
 
-    // Parameterized constructor
-    //   Desc:  Initializes a square object with specified side length
-    //   Input: float value representing the length of a side
+    // Parameterized constructor: Initializes a square object with specified side length
     Square(float length);
 
-    // Destructor
-    //   Desc: Cleans up resources when the square object is destroyed
+    // Destructor: Cleans up resources when the square object is destroyed
     ~Square();
 
     // setSide: Sets the length of a side for the square object
-    //   Input:  float value representing the length of a side
-    //   Output: None
     void setSide(float length);
 
     // findArea: Calculates the area of the square object
-    //   Input:  None
-    //   Output: float value representing the area of the square
-    float findArea();
+    float findArea() const;
 
     // findPerimeter: Calculates the perimeter of the square object
-    //   Input:  None
-    //   Output: float value representing the perimeter of the square
-    float findPerimeter();
+    float findPerimeter() const;
 
 private: // Data Members
     float side; // float value representing the length of a side of the square object
@@ -77,26 +67,28 @@ int main() {
 // Implementation section
 //
 
-// Default constructor
-//   Desc: Initializes a square object with default side length of 1
+// Default Constructor
+// -------------------
+// Desc: Initializes a square object with default side length of 1
 Square::Square() {
     side = 1;
 }
 
-// Parameterized constructor
-//   Desc:  Initializes a square object with specified side length
-//   Input: float value representing the length of a side
+// Parameterized Constructor
+// -------------------------
+// Desc:  Initializes a square object with specified side length
+// Input: float value representing the length of a side
 Square::Square(float length) {
     side = length;
 }
 
 // Destructor
-//   Desc: Cleans up resources when the square object is destroyed
-Square::~Square() {}
+// ----------
+// Desc: Cleans up resources when the square object is destroyed
+Square::~Square() = default;
 
-// ---------
-//  setSide
-// ---------
+// setSide
+// -------
 // Desc:   Sets the length of a side for the square object
 // Input:  float value representing the length of a side
 // Output: None
@@ -104,22 +96,20 @@ void Square::setSide(float length) {
     side = length;
 }
 
-// ----------
-//  findArea
-// ----------
+// findArea
+// --------
 // Desc:   Calculates the area of the square object
 // Input:  None
 // Output: float value representing the area of the square
-float Square::findArea() {
+float Square::findArea() const {
     return side * side;
 }
 
-// ---------------
-//  findPerimeter
-// ---------------
+// findPerimeter
+// -------------
 // Desc:   Calculates the perimeter of the square object
 // Input:  None
 // Output: float value representing the perimeter of the square
-float Square::findPerimeter() {
+float Square::findPerimeter() const {
     return 4 * side;
 }
