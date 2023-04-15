@@ -7,6 +7,7 @@
 
 
 
+// Extended Description:
 // This program reads floating point data from a data file and places those
 // values into the private data member called values (a floating point array)
 // of the FloatList class. Those values are then printed to the screen.
@@ -20,45 +21,69 @@
 #include <iomanip>
 using namespace std;
 
-const int MAX_LENGTH = 50;		// MAX_LENGTH contains the maximum length of our list 
-class FloatList					// Declares a class that contains an array of
-								// floating point numbers
-{
-public:
-	void getList(ifstream&);	// Member function that gets data from a file 
-	void printList() const;		// Member function that prints data from that
-								// file to the screen.
+const int MAX_LENGTH = 50; // MAX_LENGTH contains the maximum length of the list
 
-	FloatList();				// constructor that sets length to 0.
-	~FloatList();				// destructor
+// FloatList class declaration
+class FloatList {
+public:  // Constructors & Member Functions
 
-private:
-	int length;					//	Holds the number of elements in the array
-	float values[MAX_LENGTH];	//	The array of values
+    // Default constructor
+    //   Desc: Initializes an empty FloatList object with length set to 0
+    FloatList();
 
+    // Destructor
+    //   Desc: Cleans up resources when the FloatList object is destroyed
+    ~FloatList();
+
+    // getList: Reads floating point numbers from a file and stores them in the FloatList object
+    //   Input:  ifstream reference representing the file to read from
+    //   Output: None
+    void getList(ifstream& inFile);
+
+    // printList: Prints the floating point numbers stored in the FloatList object to the console
+    //   Input:  None
+    //   Output: Displays the floating point numbers on the console
+    void printList() const;
+
+private:  // Data Members
+    int length;                // Holds the number of elements in the array
+    float values[MAX_LENGTH];  // The array of floating point numbers
 };
 
 int main()
 {
-	ifstream tempData;	// Defines a data file
+    ifstream tempData;  // Defines a data file for reading temperature values
 
-	// Fill in the code to define an object called list of the class FloatList
+    // Creates an object called list of the FloatList class
+    FloatList list;
 
-	cout << fixed << showpoint;
+    cout << fixed << showpoint;
+    cout << setprecision(2);
 
-	cout << setprecision(2);
+    // Opens the file "temperatures.txt" for reading
+    tempData.open("temperatures.txt");
 
-	tempData.open("temperatures.txt");
+    // Check if the file has been opened successfully
+    if (tempData.is_open()) {
+        cout << "File Opened Successfully" << endl;
+    }
+    else {
+        cout << "Failed to Open File" << endl;
+    }
 
-	// Fill in the code that calls the getList function.
+    // Closes the file
+    tempData.close();
 
-	// Fill in the code that calls the printList function.
-
-	return 0;
+    return 0;
 }
 
-FloatList::FloatList()
-{
+
+// __________________________________________________________________
+//
+// Implementation section
+//
+
+FloatList::FloatList() {
 	// Fill in the code to complete this constructor that
 	// sets the private data member length to 0
 }
