@@ -72,8 +72,6 @@ private: // Data Members
     int center_y; // Y-coordinate of the circle's center
 };
 
-// Add Circles class declaration and other necessary code here...
-
 const double PI = 3.14;
 
 int main()
