@@ -49,6 +49,23 @@ void Account::setCents(int initCents) {
     cents = initCents % 100;
 }
 
+void Account::setInitialBalance() {
+    int dollars;
+    int cents;
+
+    cout << "Input Dollars: ";
+    cin >> dollars;
+    cout << "Input Cents: ";
+    cin >> cents;
+
+    cout << endl;
+
+    setDollars(dollars);
+    setCents(cents);
+
+    printOptions();
+}
+
 // depositPrompt
 // -------------
 // Desc:   Prompts the user to deposit money into the account.
@@ -212,4 +229,11 @@ void Account::printBalance() const {
     cout << "Current Balance" << endl;
     cout << "--------------------------" << endl;
     cout << "Dollars = $" << dollars << " Cents = ¢" << cents << endl;
+}
+
+void Account::printOptions() const {
+    cout << "OPTIONS" << endl;
+    cout << "b - See Balance" << endl;
+    cout << "d - Deposit Money" << endl;
+    cout << "w - Withdraw Money" << endl << endl;
 }
