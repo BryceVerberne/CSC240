@@ -8,35 +8,67 @@
 
 
 #include <iostream>
+#include <string>
 #include "Account.h"
 using namespace std;
 
 int main() {
+    int numClients; // The number of clients for the interactive savings account program
+    string input; // The input string to store user selections
+    bool exit = false; // Flag to determine whether to exit the program or not
 
-    Account client1;  // Create client1 Account object
-    Account client2;  // Create client2 Account object
+    cout << "Welcome to your interactive savings account!" << endl;
+    cout << "To begin, enter the number of clients: ";
+    cin >> numClients;
 
-    // Prompt user to enter initial dollar & cent amounts for client1
-    cout << "Enter client1's initial deposit" << endl;
-    client1.setInitialBalance();
+    // Check to see if numClients is positive, & if not, ask the user to reenter the value
+    while(numClients <= 0) {
+        cout << "Please enter a positive number of clients: ";
+        cin >> numClients;
+    }
 
-    // Prompt client1 if they want to make a deposit or withdrawal
-    client1.depositPrompt();
-    client1.withdrawalPrompt();
+    cout << endl;
 
-    // Print the final balance of client2
-    client1.printBalance();
+    Account client[numClients]; // Array of Account objects to store client account information
 
-    // Prompt user to enter initial dollar & cent amounts
-    cout << "\nEnter client2's initial deposit" << endl;
-    client2.setInitialBalance();
+    // Loop through each client's account and execute user-selected actions
+    for (int i = 0; (i < numClients) && (!exit); ++i) {
+        client[i].setInitialBalance(i); // Set the initial balance for the current client
 
-    // Prompt client2 if they want to make a deposit or withdrawal
-    client2.depositPrompt();
-    client2.withdrawalPrompt();
+        client[i].printOptions(); // Print the available options for the current client
+        cin >> input; // Read the user's selected option
+        cout << endl;
 
-    // Print the final balance of client2
-    client2.printBalance();
+        // Continue looping until the user selects "n" (Next Client) or "q" (Quit Program)
+        while(input != "n") {
+            if(input == "b") {
+                client[i].printBalance(); // Print the current client's balance
+            }
+            else if(input == "d") {
+                client[i].depositPrompt(); // Prompt the user to deposit money into the current client's account
+            }
+            else if(input == "w"){
+                client[i].withdrawalPrompt(); // Prompt the user to withdraw money from the current client's account
+            }
+            else if(input == "q") {
+                exit = true; // Set the exit flag to true to end the program
+                break; // Exit the inner loop
+            }
+            else {
+                cout << "That is not an option. Please try again." << endl;
+            }
 
-    return 0;
+            client[i].printOptions(); // Print the available options for the current client
+            cin >> input; // Read the user's selected option
+            cout << endl;
+        }
+    }
+
+    // Print a summary of all client accounts
+    cout << "Client Summary" << endl;
+    for(int i = 0; i < numClients; ++i) {
+        client[i].printSummary(i); // Print the account summary for the current client
+    }
+
+    return 0; // Exit the program
 }
