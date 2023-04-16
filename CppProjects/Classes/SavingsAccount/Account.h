@@ -7,7 +7,6 @@
 
 
 
-// Account class declaration
 class Account {
 public:
 
@@ -26,7 +25,8 @@ public:
     // setCents: Sets the cents amount in the Account object
     void setCents(int initCents);
 
-    void setInitialBalance();
+    // setInitialBalance: Prompts user to enter initial balance in dollars and cents for a specified client
+    void setInitialBalance(int clientNum);
 
     // depositPrompt: Prompts the user to deposit money into the account & updates the account balance
     void depositPrompt();
@@ -37,6 +37,10 @@ public:
     // printBalance: Prints the current balance in the Account object
     void printBalance() const;
 
+    // printSummary: Prints the summary of the Account object for a specified client
+    void printSummary(int clientNum) const;
+
+    // printOptions: Prints the available options for interacting with the Account object
     void printOptions() const;
 
 private:
