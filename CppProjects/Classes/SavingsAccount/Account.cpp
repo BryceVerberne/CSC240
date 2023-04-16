@@ -45,25 +45,43 @@ void Account::setDollars(int initDollars) {
 // Input:  int value representing the cents amount
 // Output: None
 void Account::setCents(int initCents) {
-    dollars += initCents / 100;
-    cents = initCents % 100;
+    dollars += initCents / 100; // Divide initCents by 100 to get the dollar amount
+    cents = initCents % 100;    // Use modulo operator to get the remaining cents
 }
 
-void Account::setInitialBalance() {
-    int dollars;
-    int cents;
+// setInitialBalance
+// -----------------
+// Desc:   Prompts user to enter initial balance in dollars and cents for a specified client
+// Input:  int value representing the client number (0-indexed)
+// Output: None
+void Account::setInitialBalance(int clientNum) {
+    int initDollars;
+    int initCents;
+
+    // Prompt user to enter initial dollar & cent amounts
+    cout << "Enter Client " << (clientNum + 1) << "'s initial balance" << endl;
 
     cout << "Input Dollars: ";
-    cin >> dollars;
+    cin >> initDollars;
+
+    // Check to see if initDollars is positive, & if not, ask the user to reenter a value
+    while (initDollars < 0) {
+        cout << "Please enter a positive dollar value: ";
+        cin >> initDollars;
+    }
+
     cout << "Input Cents: ";
-    cin >> cents;
+    cin >> initCents;
 
-    cout << endl;
+    // Check to see if centAmount is positive, & if not, ask the user to reenter a value
+    while (initCents < 0) {
+        cout << "Please enter a positive cent value: ";
+        cin >> initCents;
+    }
 
-    setDollars(dollars);
-    setCents(cents);
-
-    printOptions();
+    // Set the entered dollar and cent amounts in the Account object
+    setDollars(initDollars);
+    setCents(initCents);
 }
 
 // depositPrompt
@@ -112,23 +130,22 @@ void Account::depositPrompt() {
 
             // Update the cent amount by adding the deposited cent amount and taking the remainder when divided by 100
             cents = (cents + centAmount) % 100;
+
+            // Prompt user to enter if they want to make another deposit
+            cout << endl << "Would you like to make another deposit? [y/n]" << endl;
+            cin >> input;
         }
         else {
             // Display a message if the user input is not valid
             cout << "That is not a valid entry. Please try again.";
+
+            // Prompt user to reenter a valid character
+            cout << endl << "Press 'y' (yes) or 'n' (no) to make a deposit." << endl;
+            cin >> input;
         }
 
-        cout << endl;
-        printBalance();
-
-        // Prompt user to enter if they want to make another deposit
-        cout << endl << "Would you like to make a deposit? [y/n]" << endl;
-        cin >> input;
     }
-
-    cout << endl;
 }
-
 
 // withdrawalPrompt
 // ----------------
@@ -204,20 +221,20 @@ void Account::withdrawalPrompt() {
                 // Display a message if the account has insufficient funds
                 cout << "Declined Transaction: Insufficient funds" << endl;
             }
+
+            // Prompt user to enter if they want to make another deposit
+            cout << endl << "Would you like to make another withdrawal? [y/n]" << endl;
+            cin >> input;
         }
         else {
             // Display a message if the user input is not valid
             cout << "That is not a valid entry. Please try again.";
+
+            // Prompt user to reenter a valid character
+            cout << endl << "Press 'y' (yes) or 'n' (no) to make a withdrawal." << endl;
+            cin >> input;
         }
-
-        cout << endl;
-        printBalance();
-
-        // Prompt user to enter if they want to make another withdrawal
-        cout << endl << "Would you like to make a withdrawal? [y/n]" << endl;
-        cin >> input;
     }
-    cout << endl;
 }
 
 // printBalance
@@ -231,9 +248,28 @@ void Account::printBalance() const {
     cout << "Dollars = $" << dollars << " Cents = ¢" << cents << endl;
 }
 
+// printSummary
+// ------------
+// Desc:   Prints the summary of the Account object for a specified client.
+// Input:  int value representing the client number (0-indexed)
+// Output: Displays the client number and their balance in dollars & cents on the console.
+void Account::printSummary(int clientNum) const {
+    cout << " - Client " << (clientNum + 1) << endl;
+    cout << "    Dollars = $" << dollars << endl;
+    cout << "    Cents =   ¢" << cents << endl;
+}
+
+// printOptions
+// ------------
+// Desc:   Prints the available options for interacting with the Account object.
+// Input:  None.
+// Output: Displays the list of options and their corresponding keys on the console.
 void Account::printOptions() const {
-    cout << "OPTIONS" << endl;
+    cout << endl << "OPTIONS" << endl;
     cout << "b - See Balance" << endl;
     cout << "d - Deposit Money" << endl;
-    cout << "w - Withdraw Money" << endl << endl;
+    cout << "w - Withdraw Money" << endl;
+    cout << "n - Next Client" << endl;
+    cout << "q - Quit Program" << endl << endl;
+    cout << "Choose an option: ";
 }
