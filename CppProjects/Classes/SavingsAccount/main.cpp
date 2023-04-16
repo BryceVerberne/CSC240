@@ -12,27 +12,66 @@
 #include "Account.h"
 using namespace std;
 
+// Prototypes
+int arraySize();
+void fillList(Account *client, int size);
+void clientSummary(Account *client, int size);
+
 int main() {
-    int numClients; // The number of clients for the interactive savings account program
+    // Print an introduction for the user
+    cout << "Welcome to your interactive savings account!" << endl;
+
+    // Get the number of clients
+    int numClients = arraySize();
+
+    // Create an array of Account objects to store client account information
+    Account clientList[numClients];
+
+    // Call fillList function to get information from the user about each client
+    fillList(clientList, numClients);
+
+    // Print a summary of all client accounts
+    clientSummary(clientList, numClients);
+
+    // Exit the program
+    return 0;
+}
+
+
+// arraySize
+// ---------
+// Desc:   Gets the number of clients from the user
+// Input:  None
+// Output: int value representing the number of clients
+int arraySize() {
+    int size; // The number of clients for the interactive savings account program
+
+    // Prompt the user for the number of clients
+    cout << "To begin, enter the number of clients: ";
+    cin >> size;
+
+    // Check to see if the entered number is positive, & if not, ask the user to reenter the value
+    while(size <= 0) {
+        cout << "Please enter a positive number of clients: ";
+        cin >> size;
+    }
+    cout << endl;
+
+    // Return the number of clients
+    return size;
+}
+
+// fillList
+// --------
+// Desc:   Interacts with the user and performs actions on each client's account
+// Input:  Pointer to an array of Account objects, int value representing the number of clients
+// Output: None
+void fillList(Account *client, int size) {
     string input; // The input string to store user selections
     bool exit = false; // Flag to determine whether to exit the program or not
 
-    cout << "Welcome to your interactive savings account!" << endl;
-    cout << "To begin, enter the number of clients: ";
-    cin >> numClients;
-
-    // Check to see if numClients is positive, & if not, ask the user to reenter the value
-    while(numClients <= 0) {
-        cout << "Please enter a positive number of clients: ";
-        cin >> numClients;
-    }
-
-    cout << endl;
-
-    Account client[numClients]; // Array of Account objects to store client account information
-
     // Loop through each client's account and execute user-selected actions
-    for (int i = 0; (i < numClients) && (!exit); ++i) {
+    for (int i = 0; (i < size) && (!exit); ++i) {
         client[i].setInitialBalance(i); // Set the initial balance for the current client
 
         client[i].printOptions(); // Print the available options for the current client
@@ -63,12 +102,16 @@ int main() {
             cout << endl;
         }
     }
+}
 
-    // Print a summary of all client accounts
+// clientSummary
+// -------------
+// Desc:   Prints a summary of all client accounts
+// Input:  Pointer to an array of Account objects, int value representing the number of clients
+// Output: None
+void clientSummary(Account *client, int size) {
     cout << "Client Summary" << endl;
-    for(int i = 0; i < numClients; ++i) {
+    for(int i = 0; i < size; ++i) {
         client[i].printSummary(i); // Print the account summary for the current client
     }
-
-    return 0; // Exit the program
 }
