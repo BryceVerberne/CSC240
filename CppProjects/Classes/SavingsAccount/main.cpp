@@ -48,12 +48,16 @@ int arraySize() {
 
     // Prompt the user for the number of clients
     cout << "To begin, enter the number of clients: ";
-    cin >> size;
 
     // Check to see if the entered number is positive, & if not, ask the user to reenter the value
-    while(size <= 0) {
+    while (!(cin >> size) || (size <= 0)) {
+        // Clear the error state of the input stream
+        cin.clear();
+
+        // Ignore any remaining characters in the input buffer
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
         cout << "Please enter a positive number of clients: ";
-        cin >> size;
     }
     cout << endl;
 
