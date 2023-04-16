@@ -51,8 +51,8 @@ void Account::setCents(int initCents) {
 
 // setInitialBalance
 // -----------------
-// Desc:   Prompts user to enter initial balance in dollars and cents for a specified client
-// Input:  int value representing the client number (0-indexed)
+// Desc:   Prompts user to enter initial balance in dollars & cents for a specified client
+// Input:  int value representing the client number
 // Output: None
 void Account::setInitialBalance(int clientNum) {
     int initDollars;
@@ -79,7 +79,7 @@ void Account::setInitialBalance(int clientNum) {
         cin >> initCents;
     }
 
-    // Set the entered dollar and cent amounts in the Account object
+    // Set the entered dollar & cent amounts in the Account object
     setDollars(initDollars);
     setCents(initCents);
 }
@@ -128,7 +128,7 @@ void Account::depositPrompt() {
             // Also, add the deposited cent amount divided by 100 to the account (to handle cent overflow)
             dollars += dollarAmount + ((cents + centAmount) / 100);
 
-            // Update the cent amount by adding the deposited cent amount and taking the remainder when divided by 100
+            // Update the cent amount by adding the deposited cent amount & taking the remainder when divided by 100
             cents = (cents + centAmount) % 100;
 
             // Prompt user to enter if they want to make another deposit
@@ -188,7 +188,7 @@ void Account::withdrawalPrompt() {
                 cin >> centAmount;
             }
 
-            // Combine dollar and cent amounts, handling cents overflow
+            // Combine dollar & cent amounts, handling cents overflow
             dollarAmount += centAmount / 100;
             centAmount %= 100;
 
@@ -251,8 +251,8 @@ void Account::printBalance() const {
 // printSummary
 // ------------
 // Desc:   Prints the summary of the Account object for a specified client.
-// Input:  int value representing the client number (0-indexed)
-// Output: Displays the client number and their balance in dollars & cents on the console.
+// Input:  int value representing the client number
+// Output: Displays the client number & their balance in dollars & cents on the console.
 void Account::printSummary(int clientNum) const {
     cout << " - Client " << (clientNum + 1) << endl;
     cout << "    Dollars = $" << dollars << endl;
@@ -263,7 +263,7 @@ void Account::printSummary(int clientNum) const {
 // ------------
 // Desc:   Prints the available options for interacting with the Account object.
 // Input:  None.
-// Output: Displays the list of options and their corresponding keys on the console.
+// Output: Displays the list of options & their corresponding keys on the console.
 void Account::printOptions() const {
     cout << endl << "OPTIONS" << endl;
     cout << "b - See Balance" << endl;

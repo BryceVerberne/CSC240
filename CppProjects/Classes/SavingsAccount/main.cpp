@@ -63,14 +63,14 @@ int arraySize() {
 
 // fillList
 // --------
-// Desc:   Interacts with the user and performs actions on each client's account
+// Desc:   Interacts with the user & performs actions on each client's account
 // Input:  Pointer to an array of Account objects, int value representing the number of clients
 // Output: None
 void fillList(Account *client, int size) {
     string input; // The input string to store user selections
     bool exit = false; // Flag to determine whether to exit the program or not
 
-    // Loop through each client's account and execute user-selected actions
+    // Loop through each client's account & execute user-selected actions
     for (int i = 0; (i < size) && (!exit); ++i) {
         client[i].setInitialBalance(i); // Set the initial balance for the current client
 

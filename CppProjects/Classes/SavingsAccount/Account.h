@@ -25,7 +25,7 @@ public:
     // setCents: Sets the cents amount in the Account object
     void setCents(int initCents);
 
-    // setInitialBalance: Prompts user to enter initial balance in dollars and cents for a specified client
+    // setInitialBalance: Prompts user to enter initial balance in dollars & cents for a specified client
     void setInitialBalance(int clientNum);
 
     // depositPrompt: Prompts the user to deposit money into the account & updates the account balance
