@@ -218,28 +218,25 @@ void Account::withdrawalPrompt() {
             centAmount %= 100;
 
             // Check if the account has sufficient funds for withdrawal
-            if ((dollars - dollarAmount) >= 0) {
-                // Check if the account has enough cents to complete the transaction
-                if (((cents + ((dollars - dollarAmount) * 100)) - centAmount) >= 0) {
-                    // Deduct the withdrawn dollar amount from the account
-                    dollars -= dollarAmount;
+            if (((dollars - dollarAmount) >= 0) && (((cents + ((dollars - dollarAmount) * 100)) - centAmount) >= 0)) {
+                // Deduct the withdrawn dollar amount from the account
+                dollars -= dollarAmount;
 
-                    // Check if the current cent amount is smaller than the cent amount to be withdrawn
-                    if (cents < centAmount) {
-                        // Calculate the number of dollars to be converted to cents
-                        while ((numDollars * 100) < (centAmount - cents)) {
-                            ++numDollars;
-                        }
+                // Check if the current cent amount is smaller than the cent amount to be withdrawn
+                if (cents < centAmount) {
+                    // Calculate the number of dollars to be converted to cents
+                    while ((numDollars * 100) < (centAmount - cents)) {
+                        ++numDollars;
+                    }
 
-                        // Deduct the converted dollars from the account
-                        dollars -= numDollars;
-                        // Update the cent amount after the conversion
-                        cents = (numDollars * 100) - (centAmount - cents);
-                    }
-                    else {
-                        // Deduct the withdrawn cent amount from the account
-                        cents -= centAmount;
-                    }
+                    // Deduct the converted dollars from the account
+                    dollars -= numDollars;
+                    // Update the cent amount after the conversion
+                    cents = (numDollars * 100) - (centAmount - cents);
+                }
+                else {
+                    // Deduct the withdrawn cent amount from the account
+                    cents -= centAmount;
                 }
             }
             else {
