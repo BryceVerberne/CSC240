@@ -41,7 +41,7 @@ int main() {
         cout << endl;
 
         // Get the low and high boundaries from the user
-        cout << "Provide a low and high boundary for where I can look for prime numbers." << endl;
+        cout << "Provide a low and high boundary where I can look for prime numbers." << endl;
         lowBound = lowBoundary();
         highBound = highBoundary();
 
