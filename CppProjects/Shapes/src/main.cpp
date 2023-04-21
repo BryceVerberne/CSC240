@@ -17,50 +17,45 @@
 double getParameter();
 
 int main() {
-    Shape* shapes[6];         // Create an Array of Shapes
-    Sphere ball1(10.0);        // Create an instance of Sphere
-    Cube cuboid1(10.0);        // Create an instance of Cube
-    Cylinder tube1(2.0, 5.0);  // Create an instance of Cylinder
-    double radius;
+    Shape* shapes[3];         // Create an Array of Shapes
+    double cylinderRadius;
+    double sphereRadius;
     double width;
     double height;
 
     // TODO: Ask the user for the radius of the sphere and then create an instance of that sphere
-    std::cout << "Enter the sphere's radius: ";
-    radius = getParameter();
-    std::cout << std::endl;
-
-    Sphere ball2(radius);
+    sphereRadius = getParameter();
+    Sphere ball(sphereRadius);
 
     // TODO: Ask the user for the width of the cube and then create an instance of that cube
-    std::cout << "Enter the cube's width: ";
     width = getParameter();
-    std::cout << std::endl;
-
-    Cube cuboid2(width);
+    Cube cuboid(width);
 
     // TODO: Ask the user for the radius and height of the cylinder and then create an instance of the cylinder
-    std::cout << "Enter the cylinder's radius: ";
-    radius = getParameter();
-
-    std::cout << "Enter the cylinder's height: ";
+    cylinderRadius = getParameter();
     height = getParameter();
-    std::cout << std::endl;
 
-    Cylinder tube2(radius, height);
+    Cylinder tube(cylinderRadius, height);
 
     // TODO: Print each object
-    std::cout << ball1.toString() << std::endl << std::endl;
-    std::cout << cuboid1.toString() << std::endl << std::endl;
-    std::cout << tube1.toString() << std::endl;
+    printf("Sphere{radius=%.1f}\n", sphereRadius);
+    printf("Cube{width=%.1f}\n", width);
+    printf("Cylinder{radius=%.1f, height=%.1f}\n", cylinderRadius, height);
 
     // TODO: Add each object to your list
-
+    shapes[0] = &ball;
+    shapes[1] = &cuboid;
+    shapes[2] = &tube;
 
     // TODO: Use a for loop
     //       Print the  name of the class
     //       Print the Surface Area
     //       Print the volume
+    for (int i = 0; i < 3; ++i) {
+        std::cout << std::endl << shapes[i]->toString() << std::endl;
+        printf("Surface Area: %9.3f\n", shapes[i]->surfaceArea());
+        printf("Volume: %15.3f\n", shapes[i]->volume());
+    }
 
     return 0;
 }
@@ -73,7 +68,6 @@ double getParameter() {
 
     std::cin >> r;
     while(r < 0) {
-        std::cout << "Please enter a positive value: ";
         std::cin >> r;
     }
 
