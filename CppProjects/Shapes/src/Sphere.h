@@ -22,7 +22,7 @@ public:
     Sphere(double);
 
     // Destructor: Cleans up resources when a Sphere object is destroyed
-    ~Sphere() = default;
+    ~Sphere() override = default;
 
     // volume: Calculates and returns the volume of the Sphere object
     double volume() override;

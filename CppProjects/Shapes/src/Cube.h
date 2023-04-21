@@ -22,7 +22,7 @@ public:
     Cube(double);
 
     // Destructor: Cleans up resources when a Cube object is destroyed
-    ~Cube() = default;
+    ~Cube() override = default;
 
     // volume: Calculates and returns the volume of the Cube object
     double volume() override;

@@ -22,7 +22,7 @@ public:
     Cylinder(double, double);
 
     // Destructor: Cleans up resources when a Cylinder object is destroyed
-    ~Cylinder() = default;
+    ~Cylinder() override = default;
 
     // volume: Calculates and returns the volume of the Cylinder object
     double volume() override;
