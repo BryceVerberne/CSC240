@@ -10,19 +10,21 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
+#include <string>
+
 class Shape {
 public:
-    // Destructor: Virtual destructor to ensure proper cleanup when deleting
-    //             derived class objects through a Shape pointer
+    // Destructor: Virtual destructor to ensure proper cleanup when deleting derived class objects
     virtual ~Shape() = default;
 
-    // volume: Pure virtual function for calculating and returning the volume
-    //         of a derived Shape object
+    // volume: Pure virtual function for calculating and returning the volume of a derived Shape object
     virtual double volume() = 0;
 
-    // surfaceArea: Pure virtual function for calculating and returning the
-    //              surface area of a derived Shape object
+    // surfaceArea: Pure virtual function for calculating and returning the surface area of a derived Shape object
     virtual double surfaceArea() = 0;
+
+    // toString: Pure virtual function that returns the object's class name (as returned by typeid).
+    virtual std::string toString() = 0;
 
 };
 
