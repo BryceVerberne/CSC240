@@ -1,11 +1,10 @@
 /*
  * Title:  Shapes
- * Des:
+ * Desc:   A program to demonstrate polymorphism, abstraction, and inheritance
+ *         with Shape, Sphere, Cube, and Cylinder classes.
  * Author: Bryce Verberne
  * Date:   04/19/2023
  */
-
-
 
 #include <iostream>
 #include <cmath>
@@ -14,44 +13,42 @@
 #include "Cube.h"
 #include "Cylinder.h"
 
-// Prototypes
+// Function Prototypes
 double getParameter();
 
 int main() {
-    Shape* shapes[3];         // Create an Array of Shapes
-    double cylinderRadius;
-    double sphereRadius;
-    double width;
-    double height;
+    Shape* shapes[3];  // Create an array of pointers to Shape objects
 
-    // TODO: Ask the user for the radius of the sphere and then create an instance of that sphere
+    // Variables to store user input for the dimensions of each shape
+    double cylinderRadius;  // Radius of the cylinder
+    double sphereRadius;    // Radius of the sphere
+    double width;           // Width of the cube
+    double height;          // Height of the cylinder
+
+    // Get the user input for the radius of the sphere and create a Sphere instance with the input
     sphereRadius = getParameter();
     Sphere ball(sphereRadius);
 
-    // TODO: Ask the user for the width of the cube and then create an instance of that cube
+    // Get the user input for the width of the cube and create a Cube instance with the input
     width = getParameter();
     Cube cuboid(width);
 
-    // TODO: Ask the user for the radius and height of the cylinder and then create an instance of the cylinder
+    // Get the user input for the radius and height of the cylinder and create a Cylinder instance with the input
     cylinderRadius = getParameter();
     height = getParameter();
-
     Cylinder tube(cylinderRadius, height);
 
-    // TODO: Print each object
+    // Print each object with its properties
     printf("Sphere{radius=%.1f}\n", sphereRadius);
     printf("Cube{width=%.1f}\n", width);
     printf("Cylinder{radius=%.1f, height=%.1f}\n", cylinderRadius, height);
 
-    // TODO: Add each object to your list
+    // Add objects to 'shapes' array
     shapes[0] = &ball;
     shapes[1] = &cuboid;
     shapes[2] = &tube;
 
-    // TODO: Use a for loop
-    //       Print the  name of the class
-    //       Print the Surface Area
-    //       Print the volume
+    // Iterate through the shapes array, print the object name, surface area, and volume
     for (int i = 0; i < 3; ++i) {
         double surfaceArea = floor(shapes[i]->surfaceArea() * 1000) / 1000;
         double volume = floor(shapes[i]->volume() * 1000) / 1000;
@@ -67,6 +64,14 @@ int main() {
 // TODO: Write a method called getParameter that returns a positive integer
 //       It must continually ask the user to enter the value until a valid number is entered
 //       It must handle invalid values (Exception Handling)
+/*
+ * getParameter
+ * ------------
+ * Desc:   Prompts the user for a positive double value as input and returns it.
+ *         Continuously asks for input until a valid positive double value is entered.
+ * Input:  None.
+ * Output: The input positive double value.
+ */
 double getParameter() {
     double r;
 
