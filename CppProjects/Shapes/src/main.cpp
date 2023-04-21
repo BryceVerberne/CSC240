@@ -8,10 +8,30 @@
 
 
 #include <iostream>
+#include "Sphere.h"
+#include "Cube.h"
+#include "Cylinder.h"
 
 int main() {
+    Sphere ball(10.0);
+    Cube cuboid(10.0);
+    Cylinder tube(2.0, 5.0);
 
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << "Sphere" << std::endl;
+    std::cout << "Surface Area: " << ball.surfaceArea() << std::endl;
+    std::cout << "Volume: " << ball.volume() << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << "Cube" << std::endl;
+    std::cout << "Surface Area: " << cuboid.surfaceArea() << std::endl;
+    std::cout << "Volume: " << cuboid.volume() << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << "Cylinder" << std::endl;
+    std::cout << "Surface Area: " << tube.surfaceArea() << std::endl;
+    std::cout << "Volume: " << tube.volume() << std::endl;
 
     return 0;
 }

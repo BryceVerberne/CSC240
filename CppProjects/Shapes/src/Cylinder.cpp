@@ -9,12 +9,13 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 #include "Cylinder.h"
 
 /*
  * Default Constructor
  * -------------------
- * Desc:
+ * Desc: Creates a Cylinder object with default values for radius and height
  */
 Cylinder::Cylinder() {
     radius = 0.0;
@@ -24,9 +25,33 @@ Cylinder::Cylinder() {
 /*
  * Parameterized Constructor
  * -------------------------
- * Desc:
+ * Desc: Creates a Cylinder object with the specified radius and height
  */
 Cylinder::Cylinder(double r, double h) {
     radius = r;
     height = h;
+}
+
+/*
+ * volume
+ * ------
+ * Desc:   Calculates and returns the volume of the Cylinder object
+ * Input:
+ * Output:
+ * Notes:
+ */
+double Cylinder::volume() {
+    return M_PI * pow(radius, 2.0) * height;
+}
+
+/*
+ * surfaceArea
+ * -----------
+ * Desc:   Calculates and returns the surface area of the Cylinder object
+ * Input:
+ * Output:
+ * Notes:
+ */
+double Cylinder::surfaceArea() {
+    return (2 * M_PI * radius * height) + (2 * M_PI * pow(radius, 2.0));
 }
