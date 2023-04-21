@@ -1,11 +1,9 @@
 /*
  * Title:  Shapes
- * Desc:
+ * Desc:   Implementation of the Cylinder class, which represents a 3D cylinder shape.
  * Author: Bryce Verberne
  * Date:   04/19/2023
  */
-
-
 
 #include <iostream>
 #include <string>
@@ -25,7 +23,10 @@ Cylinder::Cylinder() {
 /*
  * Parameterized Constructor
  * -------------------------
- * Desc: Creates a Cylinder object with the specified radius and height
+ * Desc:   Creates a Cylinder object with the specified radius and height
+ * Input:  r - The radius of the cylinder.
+ *         h - The height of the cylinder.
+ * Output: None.
  */
 Cylinder::Cylinder(double r, double h) {
     radius = r;
@@ -36,9 +37,8 @@ Cylinder::Cylinder(double r, double h) {
  * volume
  * ------
  * Desc:   Calculates and returns the volume of the Cylinder object
- * Input:
- * Output:
- * Notes:
+ * Input:  None.
+ * Output: The volume of the cylinder as a double value.
  */
 double Cylinder::volume() {
     return M_PI * pow(radius, 2.0) * height;
@@ -48,9 +48,8 @@ double Cylinder::volume() {
  * surfaceArea
  * -----------
  * Desc:   Calculates and returns the surface area of the Cylinder object
- * Input:
- * Output:
- * Notes:
+ * Input:  None.
+ * Output: The surface area of the cylinder as a double value.
  */
 double Cylinder::surfaceArea() {
     return (2 * M_PI * radius * height) + (2 * M_PI * pow(radius, 2.0));

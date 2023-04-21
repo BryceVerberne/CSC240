@@ -1,11 +1,9 @@
 /*
  * Title:  Shapes
- * Desc:
+ * Desc:   Implementation of the Cube class, which represents a 3D cube shape.
  * Author: Bryce Verberne
  * Date:   04/19/2023
  */
-
-
 
 #include <iostream>
 #include <string>
@@ -15,7 +13,7 @@
 /*
  * Default Constructor
  * -------------------
- * Desc:
+ * Desc: Initializes a Cube object with a default side length of 0.
  */
 Cube::Cube() {
     width = 0.0;
@@ -24,7 +22,9 @@ Cube::Cube() {
 /*
  * Parameterized Constructor
  * -------------------------
- * Desc:
+ * Desc:  Initializes a Cube object with the specified side length.
+ * Input: w - The side length of the cube.
+ * Output: None.
  */
 Cube::Cube(double w) {
     width = w;
@@ -33,10 +33,9 @@ Cube::Cube(double w) {
 /*
  * volume
  * ------
- * Desc:   Calculates and returns the volume of the Cube object
- * Input:
- * Output:
- * Notes:
+ * Desc:   Calculates and returns the volume of the Cube object.
+ * Input:  None.
+ * Output: The volume of the cube as a double value.
  */
 double Cube::volume() {
     return pow(width, 3.0);
@@ -45,10 +44,9 @@ double Cube::volume() {
 /*
  * surfaceArea
  * -----------
- * Desc:   Calculates and returns the surface area of the Cylinder object
- * Input:
- * Output:
- * Notes:
+ * Desc:   Calculates and returns the surface area of the Cube object.
+ * Input:  None.
+ * Output: The surface area of the cube as a double value.
  */
 double Cube::surfaceArea() {
     return 6 * pow(width, 2.0);
