@@ -68,7 +68,7 @@ double getParameter() {
     double r;
 
     while(!(std::cin >> r) || (r < 0)) {
-        // Tutorial: https://www.youtube.com/watch?v=m2P5A4nR51g&ab_channel=JesusHilarioHernandez
+        // Info Source: https://www.youtube.com/watch?v=m2P5A4nR51g&ab_channel=JesusHilarioHernandez
 
         // Clear the error state of the input stream
         std::cin.clear();

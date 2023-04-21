@@ -63,6 +63,8 @@ double Cube::surfaceArea() {
  * Output: A string containing the formatted text representing the Cube object.
  */
 std::string Cube::toString() {
+    // sstream Info Source: https://cplusplus.com/reference/sstream/stringstream/
+
     // Create a stringstream object to build the output string
     std::stringstream cubeData;
 
