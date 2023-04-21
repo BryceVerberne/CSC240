@@ -9,3 +9,20 @@
 
 #include "Cube.h"
 
+/*
+ * Default Constructor
+ * -------------------
+ * Desc:
+ */
+Cube::Cube() {
+    width = 0.0;
+}
+
+/*
+ * Parameterized Constructor
+ * -------------------------
+ * Desc:
+ */
+Cube::Cube(double w) {
+    width = w;
+}
