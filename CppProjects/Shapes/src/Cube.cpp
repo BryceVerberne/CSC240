@@ -58,16 +58,8 @@ double Cube::surfaceArea() {
  * --------
  * Desc:   Returns a string representation of the Cube object, including the class name, surface area, and volume.
  * Input:  None.
- * Output: A string containing the class name (as returned by typeid), surface area, and volume of the cube.
+ * Output: A string containing the class name (as returned by typeid).
  */
 std::string Cube::toString() {
-    std::string cubeData = typeid(*this).name();
-
-    cubeData += "\nSurface Area: ";
-    cubeData += std::to_string(surfaceArea());
-
-    cubeData += "\nVolume: ";
-    cubeData += std::to_string(volume());
-
-    return cubeData;
+    return typeid(*this).name();
 }
