@@ -5,7 +5,8 @@
  * Date:   04/19/2023
  */
 
-#include <iostream>
+
+
 #include <string>
 #include <cmath>
 #include "Sphere.h"
@@ -50,4 +51,23 @@ double Sphere::volume() {
  */
 double Sphere::surfaceArea() {
     return 4 * M_PI * pow(radius, 2.0);
+}
+
+/*
+ * toString
+ * --------
+ * Desc:   Returns a string representation of the Sphere object, including the class name, surface area, and volume.
+ * Input:  None.
+ * Output: A string containing the class name (as returned by typeid), surface area, and volume of the sphere.
+ */
+std::string Sphere::toString() {
+    std::string sphereData = typeid(*this).name();
+
+    sphereData += "\nSurface Area: ";
+    sphereData += std::to_string(surfaceArea());
+
+    sphereData += "\nVolume: ";
+    sphereData += std::to_string(volume());
+
+    return sphereData;
 }

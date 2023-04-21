@@ -5,7 +5,8 @@
  * Date:   04/19/2023
  */
 
-#include <iostream>
+
+
 #include <string>
 #include <cmath>
 #include "Cylinder.h"
@@ -53,4 +54,23 @@ double Cylinder::volume() {
  */
 double Cylinder::surfaceArea() {
     return (2 * M_PI * radius * height) + (2 * M_PI * pow(radius, 2.0));
+}
+
+/*
+ * toString
+ * --------
+ * Desc:   Returns a string representation of the Cylinder object, including the class name, surface area, and volume.
+ * Input:  None.
+ * Output: A string containing the class name (as returned by typeid), surface area, and volume of the cylinder.
+ */
+std::string Cylinder::toString() {
+    std::string cylinderData = typeid(*this).name();
+
+    cylinderData += "\nSurface Area: ";
+    cylinderData += std::to_string(surfaceArea());
+
+    cylinderData += "\nVolume: ";
+    cylinderData += std::to_string(volume());
+
+    return cylinderData;
 }
