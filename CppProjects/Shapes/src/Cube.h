@@ -30,8 +30,8 @@ public:
     // surfaceArea: Calculates and returns the surface area of the Cube object
     double surfaceArea() override;
 
-    // toString: Returns a string representation of the Cube object, including its width
-    std::string toString();
+    // toString: Returns a string representation of the Cube object's class name (as returned by typeid)
+    std::string toString() override;
 
 private:
     double width; // The width (edge length) of the cube

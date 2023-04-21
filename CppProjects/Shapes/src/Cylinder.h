@@ -30,8 +30,8 @@ public:
     // surfaceArea: Calculates and returns the surface area of the Cylinder object
     double surfaceArea() override;
 
-    // toString: Returns a string representation of the Cylinder object, including its radius and height
-    std::string toString();
+    // toString: Returns a string representation of the Cylinder object's class name (as returned by typeid)
+    std::string toString() override;
 
 private:
     double radius; // The radius of the cylinder

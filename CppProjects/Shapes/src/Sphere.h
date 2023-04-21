@@ -30,8 +30,8 @@ public:
     // surfaceArea: Calculates and returns the surface area of the Sphere object
     double surfaceArea() override;
 
-    // toString: Returns a string representation of the Sphere object, including its radius
-    std::string toString();
+    // toString: Returns a string representation of the Sphere object's class name (as returned by typeid)
+    std::string toString() override;
 
 private:
     double radius; // The radius of the sphere
