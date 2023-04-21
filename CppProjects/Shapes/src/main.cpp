@@ -31,21 +31,11 @@ int main() {
     // TODO: Create an instance of the cylinder
 
     // TODO: Print each object
-    std::cout << "Sphere" << std::endl;
-    std::cout << "Surface Area: " << ball.surfaceArea() << std::endl;
-    std::cout << "Volume: " << ball.volume() << std::endl;
+    std::cout << ball.toString() << std::endl << std::endl;
 
-    std::cout << std::endl;
+    std::cout << cuboid.toString() << std::endl << std::endl;
 
-    std::cout << "Cube" << std::endl;
-    std::cout << "Surface Area: " << cuboid.surfaceArea() << std::endl;
-    std::cout << "Volume: " << cuboid.volume() << std::endl;
-
-    std::cout << std::endl;
-
-    std::cout << "Cylinder" << std::endl;
-    std::cout << "Surface Area: " << tube.surfaceArea() << std::endl;
-    std::cout << "Volume: " << tube.volume() << std::endl;
+    std::cout << tube.toString() << std::endl;
 
     // TODO: Add each object to your list
 
