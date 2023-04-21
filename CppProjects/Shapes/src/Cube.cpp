@@ -9,6 +9,8 @@
 
 #include <string>
 #include <cmath>
+#include <iomanip>
+#include <sstream>
 #include "Cube.h"
 
 /*
@@ -58,8 +60,26 @@ double Cube::surfaceArea() {
  * --------
  * Desc:   Returns a string representation of the Cube object, including the class name, surface area, and volume.
  * Input:  None.
- * Output: A string containing the class name (as returned by typeid).
+ * Output: A string containing the formatted text representing the Cube object.
  */
 std::string Cube::toString() {
-    return typeid(*this).name();
+    // Create a stringstream object to build the output string
+    std::stringstream cubeData;
+
+    // Calculate the truncated volume and surface area by rounding down to 3 decimal places
+    double truncatedVol = floor(volume() * 1000) / 1000;
+    double truncatedArea = floor(surfaceArea() * 1000) / 1000;
+
+    // Add the class name to the stringstream (obtained from typeid)
+    cubeData << typeid(*this).name();
+
+    // Configure the stringstream to display fixed-point notation with 3 decimal places
+    cubeData << std::fixed << std::setprecision(3);
+
+    // Add the surface area and volume to the stringstream, with right-aligned values
+    cubeData << "\nSurface Area:" << std::setw(10) << truncatedArea;
+    cubeData << "\nVolume:" << std::setw(16) << truncatedVol;
+
+    // Return the formatted string built using the stringstream object
+    return cubeData.str();
 }
