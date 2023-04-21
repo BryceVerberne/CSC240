@@ -1,8 +1,9 @@
-/*
- * Title:  Shapes
- * Desc:   Cube class representing a 3D cube shape, inheriting from Shape class
- * Author: Bryce Verberne
- * Date:   04/19/2023
+/**
+ * @file Cube.h
+ * @title Shapes
+ * @brief Cube class representing a 3D cube shape, inheriting from Shape class.
+ * @author Bryce Verberne
+ * @date 04/19/2023
  */
 
 
@@ -15,26 +16,45 @@
 
 class Cube : public Shape {
 public:
-    // Default Constructor: Creates a Cube object with a default value for width
+    /**
+     * @brief Initializes a Cube object with a default side length of 0.
+     */
     Cube();
 
-    // Parameterized Constructor: Creates a Cube object with the specified width
+    /**
+     * @brief Initializes a Cube object with the specified side length.
+     * @param w The side length of the cube.
+     */
     Cube(double);
 
-    // Destructor: Cleans up resources when a Cube object is destroyed
+    /**
+     * @brief Cleans up resources when a Cube object is destroyed.
+     */
     ~Cube() override = default;
 
-    // volume: Calculates and returns the volume of the Cube object
+    /**
+     * @brief Calculates and returns the volume of the Cube object.
+     * @return The volume of the cube as a double value.
+     */
     double volume() override;
 
-    // surfaceArea: Calculates and returns the surface area of the Cube object
+    /**
+     * @brief Calculates and returns the surface area of the Cube object.
+     * @return The surface area of the cube as a double value.
+     */
     double surfaceArea() override;
 
-    // toString: Returns a string representation of the Cube object's class name (as returned by typeid)
+    /**
+     * @brief Returns a string representation of the Cube object, including the class name, surface area, and volume.
+     * @return A string containing the formatted text representing the Cube object.
+     */
     std::string toString() override;
 
 private:
-    double width; // The width (edge length) of the cube
+    /**
+     * @brief The width (edge length) of the cube.
+     */
+    double width;
 };
 
 #endif

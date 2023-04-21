@@ -1,10 +1,12 @@
-/*
- * Title:  Shapes
- * Desc:   A program to demonstrate polymorphism, abstraction, and inheritance
- *         with Shape, Sphere, Cube, and Cylinder classes.
- * Author: Bryce Verberne
- * Date:   04/19/2023
+/**
+ * @file main.cpp
+ * @title Shapes
+ * @brief A program to demonstrate polymorphism, abstraction, and inheritance with Shape, Sphere, Cube, and Cylinder classes.
+ * @author Bryce Verberne
+ * @date 04/19/2023
  */
+
+
 
 #include <iostream>
 #include "Shape.h"
@@ -15,6 +17,10 @@
 // Function Prototypes
 double getParameter();
 
+/**
+ * @brief The main function of the program.
+ * @return 0 if the program exits successfully.
+ */
 int main() {
     Shape* shapes[3];  // Create an array of pointers to Shape objects
 
@@ -55,14 +61,10 @@ int main() {
     return 0;
 }
 
-
-/*
- * getParameter
- * ------------
- * Desc:   Prompts the user for a positive double value as input and returns it.
- * Input:  None.
- * Output: The input positive double value.
- * Notes:  Continuously asks for input until a valid positive double value is entered.
+/**
+ * @brief Prompts the user for a positive double value as input and returns it.
+ * @return The input positive double value.
+ * @note Continuously asks for input until a valid positive double value is entered.
  */
 double getParameter() {
     double r;

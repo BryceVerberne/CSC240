@@ -1,8 +1,9 @@
-/*
- * Title:  Shapes
- * Desc:   Implementation of the Sphere class, which represents a 3D sphere shape.
- * Author: Bryce Verberne
- * Date:   04/19/2023
+/**
+ * @file Sphere.cpp
+ * @title Shapes
+ * @brief Implementation of the Sphere class, which represents a 3D sphere shape.
+ * @author Bryce Verberne
+ * @date 04/19/2023
  */
 
 
@@ -13,54 +14,40 @@
 #include <sstream>
 #include "Sphere.h"
 
-/*
- * Default Constructor
- * -------------------
- * Desc: Initializes a Sphere object with a default radius of 0.
+/**
+ * @brief Initializes a Sphere object with a default radius of 0.
  */
 Sphere::Sphere() {
     radius = 0.0;
 }
 
-/*
- * Parameterized Constructor
- * -------------------------
- * Desc:  Initializes a Sphere object with the specified radius.
- * Input: r - The radius of the sphere.
- * Output: None.
+/**
+ * @brief Initializes a Sphere object with the specified radius.
+ * @param r The radius of the sphere.
  */
 Sphere::Sphere(double r) {
     radius = r;
 }
 
-/*
- * volume
- * ------
- * Desc:   Calculates and returns the volume of the Sphere object.
- * Input:  None.
- * Output: The volume of the sphere as a double value.
+/**
+ * @brief Calculates and returns the volume of the Sphere object.
+ * @return The volume of the sphere as a double value.
  */
 double Sphere::volume() {
     return (4.0/3.0) * M_PI * pow(radius, 3.0);
 }
 
-/*
- * surfaceArea
- * -----------
- * Desc:   Calculates and returns the surface area of the Sphere object.
- * Input:  None.
- * Output: The surface area of the sphere as a double value.
+/**
+ * @brief Calculates and returns the surface area of the Sphere object.
+ * @return The surface area of the sphere as a double value.
  */
 double Sphere::surfaceArea() {
     return 4 * M_PI * pow(radius, 2.0);
 }
 
-/*
- * toString
- * --------
- * Desc:   Returns a string representation of the Sphere object, including the class name, surface area, and volume.
- * Input:  None.
- * Output: A string containing the formatted text representing the Sphere object.
+/**
+ * @brief Returns a string representation of the Sphere object, including the class name, surface area, and volume.
+ * @return A string containing the formatted text representing the Sphere object.
  */
 std::string Sphere::toString() {
     // sstream Info Source: https://cplusplus.com/reference/sstream/stringstream/

@@ -1,8 +1,9 @@
-/*
- * Title:  Shapes
- * Desc:   Implementation of the Cube class, which represents a 3D cube shape.
- * Author: Bryce Verberne
- * Date:   04/19/2023
+/**
+ * @file Cube.cpp
+ * @title Shapes
+ * @brief Implementation of the Cube class, which represents a 3D cube shape.
+ * @author Bryce Verberne
+ * @date 04/19/2023
  */
 
 
@@ -13,54 +14,40 @@
 #include <sstream>
 #include "Cube.h"
 
-/*
- * Default Constructor
- * -------------------
- * Desc: Initializes a Cube object with a default side length of 0.
+/**
+ * @brief Initializes a Cube object with a default side length of 0.
  */
 Cube::Cube() {
     width = 0.0;
 }
 
-/*
- * Parameterized Constructor
- * -------------------------
- * Desc:  Initializes a Cube object with the specified side length.
- * Input: w - The side length of the cube.
- * Output: None.
+/**
+ * @brief Initializes a Cube object with the specified side length.
+ * @param w The side length of the cube.
  */
 Cube::Cube(double w) {
     width = w;
 }
 
-/*
- * volume
- * ------
- * Desc:   Calculates and returns the volume of the Cube object.
- * Input:  None.
- * Output: The volume of the cube as a double value.
+/**
+ * @brief Calculates and returns the volume of the Cube object.
+ * @return The volume of the cube as a double value.
  */
 double Cube::volume() {
     return pow(width, 3.0);
 }
 
-/*
- * surfaceArea
- * -----------
- * Desc:   Calculates and returns the surface area of the Cube object.
- * Input:  None.
- * Output: The surface area of the cube as a double value.
+/**
+ * @brief Calculates and returns the surface area of the Cube object.
+ * @return The surface area of the cube as a double value.
  */
 double Cube::surfaceArea() {
     return 6 * pow(width, 2.0);
 }
 
-/*
- * toString
- * --------
- * Desc:   Returns a string representation of the Cube object, including the class name, surface area, and volume.
- * Input:  None.
- * Output: A string containing the formatted text representing the Cube object.
+/**
+ * @brief Returns a string representation of the Cube object, including the class name, surface area, and volume.
+ * @return A string containing the formatted text representing the Cube object.
  */
 std::string Cube::toString() {
     // sstream Info Source: https://cplusplus.com/reference/sstream/stringstream/

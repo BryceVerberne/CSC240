@@ -1,8 +1,9 @@
-/*
- * Title:  Shapes
- * Desc:   Cylinder class representing a 3D cylinder shape, inheriting from Shape class
- * Author: Bryce Verberne
- * Date:   04/19/2023
+/**
+ * @file Cylinder.h
+ * @title Shapes
+ * @brief Cylinder class representing a 3D cylinder shape, inheriting from Shape class.
+ * @author Bryce Verberne
+ * @date 04/19/2023
  */
 
 
@@ -15,27 +16,51 @@
 
 class Cylinder : public Shape {
 public:
-    // Default Constructor: Creates a Cylinder object with default values for radius and height
+    /**
+     * @brief Creates a Cylinder object with default values for radius and height.
+     */
     Cylinder();
 
-    // Parameterized Constructor: Creates a Cylinder object with the specified radius and height
+    /**
+     * @brief Creates a Cylinder object with the specified radius and height.
+     * @param r The radius of the cylinder.
+     * @param h The height of the cylinder.
+     */
     Cylinder(double, double);
 
-    // Destructor: Cleans up resources when a Cylinder object is destroyed
+    /**
+     * @brief Cleans up resources when a Cylinder object is destroyed.
+     */
     ~Cylinder() override = default;
 
-    // volume: Calculates and returns the volume of the Cylinder object
+    /**
+     * @brief Calculates and returns the volume of the Cylinder object.
+     * @return The volume of the cylinder as a double value.
+     */
     double volume() override;
 
-    // surfaceArea: Calculates and returns the surface area of the Cylinder object
+    /**
+     * @brief Calculates and returns the surface area of the Cylinder object.
+     * @return The surface area of the cylinder as a double value.
+     */
     double surfaceArea() override;
 
-    // toString: Returns a string representation of the Cylinder object's class name (as returned by typeid)
+    /**
+     * @brief Returns a string representation of the Cylinder object, including the class name, surface area, and volume.
+     * @return A string containing the formatted text representing the Cylinder object.
+     */
     std::string toString() override;
 
 private:
-    double radius; // The radius of the cylinder
-    double height; // The height of the cylinder
+    /**
+     * @brief The radius of the cylinder.
+     */
+    double radius;
+
+    /**
+     * @brief The height of the cylinder.
+     */
+    double height;
 };
 
 #endif

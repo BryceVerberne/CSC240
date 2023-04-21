@@ -1,8 +1,9 @@
-/*
- * Title:  Shapes
- * Desc:   Sphere class representing a 3D sphere shape, inheriting from Shape class
- * Author: Bryce Verberne
- * Date:   04/19/2023
+/**
+ * @file Sphere.h
+ * @title Shapes
+ * @brief Sphere class representing a 3D sphere shape, inheriting from Shape class
+ * @author Bryce Verberne
+ * @date 04/19/2023
  */
 
 
@@ -15,26 +16,45 @@
 
 class Sphere : public Shape {
 public:
-    // Default Constructor: Creates a Sphere object with a default value for radius
+    /**
+     * @brief Initializes a Sphere object with a default radius of 0.
+     */
     Sphere();
 
-    // Parameterized Constructor: Creates a Sphere object with the specified radius
+    /**
+     * @brief Initializes a Sphere object with the specified radius.
+     * @param r The radius of the sphere.
+     */
     Sphere(double);
 
-    // Destructor: Cleans up resources when a Sphere object is destroyed
+    /**
+     * @brief Cleans up resources when a Sphere object is destroyed.
+     */
     ~Sphere() override = default;
 
-    // volume: Calculates and returns the volume of the Sphere object
+    /**
+     * @brief Calculates and returns the volume of the Sphere object.
+     * @return The volume of the sphere as a double value.
+     */
     double volume() override;
 
-    // surfaceArea: Calculates and returns the surface area of the Sphere object
+    /**
+      * @brief Calculates and returns the surface area of the Sphere object.
+      * @return The surface area of the sphere as a double value.
+      */
     double surfaceArea() override;
 
-    // toString: Returns a string representation of the Sphere object's class name (as returned by typeid)
+    /**
+     * @brief Returns a string representation of the Sphere object, including the class name, surface area, and volume.
+     * @return A string containing the formatted text representing the Sphere object.
+     */
     std::string toString() override;
 
 private:
-    double radius; // The radius of the sphere
+    /**
+     * @brief The radius of the sphere.
+     */
+    double radius;
 };
 
 #endif
