@@ -7,7 +7,6 @@
  */
 
 #include <iostream>
-#include <cmath>
 #include "Shape.h"
 #include "Sphere.h"
 #include "Cube.h"
@@ -50,12 +49,7 @@ int main() {
 
     // Iterate through the shapes array, print the object name, surface area, and volume
     for (int i = 0; i < 3; ++i) {
-        double surfaceArea = floor(shapes[i]->surfaceArea() * 1000) / 1000;
-        double volume = floor(shapes[i]->volume() * 1000) / 1000;
-
         std::cout << std::endl << shapes[i]->toString() << std::endl;
-        printf("Surface Area: %9.3f\n", surfaceArea);
-        printf("Volume: %15.3f\n", volume);
     }
 
     return 0;
