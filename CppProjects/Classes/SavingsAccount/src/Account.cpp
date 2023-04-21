@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include <string>
-#include <limits>
 #include "Account.h"
 using namespace std;
 
@@ -66,26 +65,28 @@ void Account::setInitialBalance(int clientNum) {
 
     // Check to see if initDollars is positive, & if not, ask the user to reenter a value
     while (!(cin >> initDollars) || (initDollars < 0)) {
+        // Tutorial: https://www.youtube.com/watch?v=m2P5A4nR51g&ab_channel=JesusHilarioHernandez
+
+        cout << "Please enter a positive dollar value: ";
+
         // Clear the error state of the input stream
         cin.clear();
 
-        // Ignore any remaining characters in the input buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << "Please enter a positive dollar value: ";
+        // Discard previous input
+        cin.ignore(123, '\n');
     }
 
     cout << "Input Cents: ";
 
     // Check to see if centAmount is positive, & if not, ask the user to reenter a value
     while (!(cin >> initCents) || (initCents < 0)) {
+        cout << "Please enter a positive cent value: ";
+
         // Clear the error state of the input stream
         cin.clear();
 
-        // Ignore any remaining characters in the input buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << "Please enter a positive cent value: ";
+        // Discard previous input
+        cin.ignore(123, '\n');
     }
 
     // Set the entered dollar & cent amounts in the Account object
@@ -118,13 +119,13 @@ void Account::depositPrompt() {
 
             // Check to see if dollarAmount is positive, & if not, ask the user to reenter a value
             while (!(cin >> dollarAmount) || (dollarAmount < 0)) {
+                cout << "Please enter a positive dollar value: ";
+
                 // Clear the error state of the input stream
                 cin.clear();
 
-                // Ignore any remaining characters in the input buffer
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-                cout << "Please enter a positive dollar value: ";
+                // Discard previous input
+                cin.ignore(123, '\n');
             }
 
             // Prompt user to input the cent amount to be deposited
@@ -132,13 +133,13 @@ void Account::depositPrompt() {
 
             // Check to see if centAmount is positive, & if not, ask the user to reenter a value
             while (!(cin >> centAmount) || (centAmount < 0)) {
+                cout << "Please enter a positive cent value: ";
+
                 // Clear the error state of the input stream
                 cin.clear();
 
-                // Ignore any remaining characters in the input buffer
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-                cout << "Please enter a positive cent value: ";
+                // Discard previous input
+                cin.ignore(123, '\n');
             }
 
             // Add the deposited dollar amount to the account
@@ -190,13 +191,13 @@ void Account::withdrawalPrompt() {
 
             // Check to see if dollarAmount is positive, & if not, ask the user to reenter a value
             while (!(cin >> dollarAmount) || (dollarAmount < 0)) {
+                cout << "Please enter a positive dollar value: ";
+
                 // Clear the error state of the input stream
                 cin.clear();
 
-                // Ignore any remaining characters in the input buffer
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-                cout << "Please enter a positive dollar value: ";
+                // Discard previous input
+                cin.ignore(123, '\n');
             }
 
             // Prompt user to input the cent amount to be withdrawn
@@ -204,13 +205,13 @@ void Account::withdrawalPrompt() {
 
             // Check to see if centAmount is positive, & if not, ask the user to reenter a value
             while (!(cin >> centAmount) || (centAmount < 0)) {
+                cout << "Please enter a positive cent value: ";
+
                 // Clear the error state of the input stream
                 cin.clear();
 
-                // Ignore any remaining characters in the input buffer
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-                cout << "Please enter a positive cent value: ";
+                // Discard previous input
+                cin.ignore(123, '\n');
             }
 
             // Combine dollar & cent amounts, handling cents overflow

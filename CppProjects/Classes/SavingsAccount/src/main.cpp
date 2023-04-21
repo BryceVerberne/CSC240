@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include <string>
-#include <limits>
 #include "Account.h"
 using namespace std;
 
@@ -52,13 +51,15 @@ int arraySize() {
 
     // Check to see if the entered number is positive, & if not, ask the user to reenter the value
     while (!(cin >> size) || (size <= 0)) {
+        // Tutorial: https://www.youtube.com/watch?v=m2P5A4nR51g&ab_channel=JesusHilarioHernandez
+
+        cout << "Please enter a positive number of clients: ";
+
         // Clear the error state of the input stream
         cin.clear();
 
         // Ignore any remaining characters in the input buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << "Please enter a positive number of clients: ";
+        cin.ignore(123, '\n');
     }
     cout << endl;
 
