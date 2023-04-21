@@ -1,6 +1,6 @@
 /**
- * @file Cylinder.h
- * @title Shapes
+ * @class Cylinder
+ * @title Cylinder Class Header
  * @brief Cylinder class representing a 3D cylinder shape, inheriting from Shape class.
  * @author Bryce Verberne
  * @date 04/19/2023

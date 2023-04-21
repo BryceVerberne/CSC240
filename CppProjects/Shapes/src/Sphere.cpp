@@ -1,7 +1,7 @@
 /**
- * @file Sphere.cpp
- * @title Shapes
- * @brief Implementation of the Sphere class, which represents a 3D sphere shape.
+ * @class Sphere
+ * @title 3D Sphere Shape
+ * @brief Represents a 3D Sphere shape and provides functions for calculating its surface area and volume.
  * @author Bryce Verberne
  * @date 04/19/2023
  */

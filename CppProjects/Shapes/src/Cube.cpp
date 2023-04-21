@@ -1,7 +1,7 @@
 /**
- * @file Cube.cpp
- * @title Shapes
- * @brief Implementation of the Cube class, which represents a 3D cube shape.
+ * @class Cube
+ * @title 3D Cube Shape
+ * @brief Represents a 3D Cube shape and provides functions for calculating its surface area and volume.
  * @author Bryce Verberne
  * @date 04/19/2023
  */

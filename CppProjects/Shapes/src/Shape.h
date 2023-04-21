@@ -1,10 +1,12 @@
 /**
- * @file Shape.h
- * @title Shapes
+ * @class Shape
+ * @title Abstract Shape Class Header
  * @brief Abstract Shape class representing a base class for 3D geometric shapes.
  * @author Bryce Verberne
  * @date 04/19/2023
  */
+
+
 
 #ifndef SHAPE_H
 #define SHAPE_H

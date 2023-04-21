@@ -1,7 +1,7 @@
 /**
- * @file Cylinder.cpp
- * @title Shapes
- * @brief Implementation of the Cylinder class, which represents a 3D cylinder shape.
+ * @class Cylinder
+ * @title 3D Cylinder Shape
+ * @brief Represents a 3D cylinder shape and provides functions for calculating its surface area and volume.
  * @author Bryce Verberne
  * @date 04/19/2023
  */

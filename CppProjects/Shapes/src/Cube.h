@@ -1,6 +1,6 @@
 /**
- * @file Cube.h
- * @title Shapes
+ * @class Cube
+ * @title Cube Class Header
  * @brief Cube class representing a 3D cube shape, inheriting from Shape class.
  * @author Bryce Verberne
  * @date 04/19/2023

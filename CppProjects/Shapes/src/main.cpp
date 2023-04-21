@@ -1,7 +1,7 @@
 /**
- * @file main.cpp
- * @title Shapes
- * @brief A program to demonstrate polymorphism, abstraction, and inheritance with Shape, Sphere, Cube, and Cylinder classes.
+ * @class main
+ * @title Shape Calculation Interface
+ * @brief Provides a user interface and demonstrates basic functionality for classes Sphere, Cylinder, and Cube.
  * @author Bryce Verberne
  * @date 04/19/2023
  */

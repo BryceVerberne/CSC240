@@ -1,6 +1,6 @@
 /**
- * @file Sphere.h
- * @title Shapes
+ * @class Sphere
+ * @title Sphere Class Header
  * @brief Sphere class representing a 3D sphere shape, inheriting from Shape class
  * @author Bryce Verberne
  * @date 04/19/2023
