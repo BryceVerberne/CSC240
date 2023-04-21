@@ -61,23 +61,26 @@ int main() {
     return 0;
 }
 
-// TODO: Write a method called getParameter that returns a positive integer
-//       It must continually ask the user to enter the value until a valid number is entered
-//       It must handle invalid values (Exception Handling)
+
 /*
  * getParameter
  * ------------
  * Desc:   Prompts the user for a positive double value as input and returns it.
- *         Continuously asks for input until a valid positive double value is entered.
  * Input:  None.
  * Output: The input positive double value.
+ * Notes:  Continuously asks for input until a valid positive double value is entered.
  */
 double getParameter() {
     double r;
 
-    std::cin >> r;
-    while(r < 0) {
-        std::cin >> r;
+    while(!(std::cin >> r) || (r < 0)) {
+        // Tutorial: https://www.youtube.com/watch?v=m2P5A4nR51g&ab_channel=JesusHilarioHernandez
+
+        // Clear the error state of the input stream
+        std::cin.clear();
+
+        // Discard previous input
+        std::cin.ignore(123, '\n');
     }
 
     return r;
