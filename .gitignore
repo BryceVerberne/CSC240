@@ -125,4 +125,6 @@ CMakeLists.txt
 # Ignore files ending in .rkt~
 *.rkt~
 
-
+# Ignore Doxygen files
+docs/
+Doxyfile
